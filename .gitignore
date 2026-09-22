@@ -1,0 +1,7 @@
+# Release documentation only; binary downloads belong in GitHub Releases.
+*
+!.gitignore
+!README.md
+!README.ru.md
+!CHANGELOG.md
+!SHA256SUMS.txt
