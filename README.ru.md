@@ -22,11 +22,13 @@
 
 Ревизия **0.171-r2** исправляет ошибку запуска **20** после чистой установки: в APK добавлены обязательные библиотеки самопроверки GNU-unique и библиотеки проверки loader-cycle. Android versionCode — 172, версия приложения — 0.171. Установите поверх прежнего APK и запустите игру; вручную копировать runtime не нужно.
 
+**0.171-r3** также исправляет вылет с Windows-настройкой DirectX: лаунчер автоматически выбирает Vulkan и сохраняет резервную копию boot.vcfg. VersionCode: 173.
+
 ## Установка
 
-1. Скачайте `Alyx-Jailbreak-0.171-r2.apk` из [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.171-r2).
+1. Скачайте `Alyx-Jailbreak-0.171-r3.apk` из [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.171-r3).
 2. Установите APK на Quest 3 привычным установщиком либо командой
-   `adb install -r Alyx-Jailbreak-0.171-r2.apk`.
+   `adb install -r Alyx-Jailbreak-0.171-r3.apk`.
 3. Скопируйте папку **game** из Windows-версии в
    `/sdcard/AlyxJailbreak/game/`, включая все части VPK и файлы шейдеров.
    Отсутствующий ARM64/Linux-runtime уже в APK: кнопка «Проверить кеш» или

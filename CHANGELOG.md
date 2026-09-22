@@ -1,3 +1,19 @@
+# 0.171-r3
+
+## Русский
+- Исправлен вылет при запуске с чистой копией Windows-данных, содержащей выбор DirectX в game/hlvr/cfg/boot.vcfg. Перед каждым запуском лаунчер автоматически выбирает Vulkan.
+- Исходный boot.vcfg сохраняется в .runtime-backups/0.171-r3; остальные параметры файла сохраняются. Отсутствующий файл создаётся автоматически.
+- Включены все библиотеки runtime из r2, в том числе исправление ошибки 20. Ручные патчи и повторное копирование игры не нужны: установите APK поверх прежнего и нажмите «Запустить».
+- Версия 0.171-r3, Android versionCode 173. Библиотеки рендера и assets побайтно совпадают с r2; тяжёлая статистика не добавлялась.
+- Проверены подпись APK, тесты миграции/резервирования/повторного запуска. На Quest намеренно возвращён проблемный -dx11: APK самостоятельно заменил его на -vulkan и прошёл прежнее место вылета. Полное прохождение не проверено.
+
+## English
+- Fixed startup crashes with fresh Windows game data selecting DirectX in game/hlvr/cfg/boot.vcfg. The launcher now selects Vulkan before every launch.
+- Original boot.vcfg is backed up under .runtime-backups/0.171-r3; unrelated settings are preserved. Missing boot configuration is created automatically.
+- Includes the complete r2 runtime and error-20 fix. Install over the previous APK and Launch; manual patches or recopying game data are unnecessary.
+- Version 0.171-r3, Android versionCode 173. Native rendering libraries and assets are byte-identical to r2; no heavy statistics added.
+- APK signature and migration/backup/idempotence tests passed. On Quest, the failing -dx11 configuration was deliberately restored: the APK automatically changed it to -vulkan and passed the previous crash point. Full playthrough not tested.
+
 # 0.171-r2
 
 ## Русский
