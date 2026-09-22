@@ -14,17 +14,19 @@ files are not published here.
 - Graphics, audio, saves, help and file-check messages are translated.
 - Independent foveation and MSAA 1×/2× selectors, using the existing four modes.
 - Lean rendering configuration without heavy statistics or GPU tracing.
-- Bundled ARM64/Linux runtime:142 files plus a stock-only gameinfo adjustment.
+- Bundled ARM64/Linux runtime: 146 files plus a stock-only gameinfo adjustment.
 - Based on the updated ARM64 depot `546564-20260921`.
 
 This release updates launcher localization and version metadata. It does not
 claim to fix the reported weak MSAA effect or occasional gameplay stutters.
 
+Revision **0.171-r2** fixes startup error **20** after a fresh installation: the APK now includes the mandatory GNU-unique loader self-test libraries and the loader-cycle test libraries. Android versionCode is 172; versionName remains 0.171. Install over the previous APK and launch normally; no manual runtime copying is needed.
+
 ## Installation
 
-1. Download `Alyx-Jailbreak-0.171.apk` from [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.171).
+1. Download `Alyx-Jailbreak-0.171-r2.apk` from [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.171-r2).
 2. Sideload it to your Quest 3 with your usual APK installer, or run
-   `adb install -r Alyx-Jailbreak-0.171.apk`.
+   `adb install -r Alyx-Jailbreak-0.171-r2.apk`.
 3. Copy the **game** folder from your Windows installation to
    `/sdcard/AlyxJailbreak/game/` (including all VPK parts and shader files).
    The APK includes the missing ARM64/Linux runtime and installs it automatically
