@@ -1,5 +1,22 @@
 # 0.171-r3
 
+## 0.172 — asymmetric stereo projection
+
+- Apply `vr_symmetric_fov 0` automatically on every launch in all four FDM/MSAA modes.
+- Addresses stretched geometry and inconsistent eye images observed on affected headsets. Correct output was confirmed by the project owner in the Turnip diagnostic build.
+- Retain Turnip, memory optimizations, pipeline caching, RU/EN launcher and bundled runtime from 0.171-r3. No heavy tracing or diagnostic UI.
+- APK versionName 0.172, versionCode 174. Install over 0.171-r3 or diagnostic builds; preserve game data and saves.
+- This is not a general MSAA or stutter fix. Full visual validation of all four modes is still pending.
+
+## 0.172 — асимметричная стереопроекция
+
+- `vr_symmetric_fov 0` автоматически применяется при каждом запуске во всех четырёх режимах фовеации/MSAA.
+- Исправление направлено на растянутую геометрию и несовпадающие изображения глаз. Владелец проекта подтвердил целостную картинку в диагностике с Turnip.
+- Сохранены Turnip, оптимизации памяти, кэш конвейеров, лаунчер RU/EN и runtime 0.171-r3. Тяжёлой трассировки и диагностического интерфейса нет.
+- Версия APK 0.172, versionCode 174. Установка поверх 0.171-r3 или диагностики, без удаления данных и сохранений.
+- Это не общее исправление MSAA или подлагиваний. Полная визуальная проверка всех четырёх режимов ещё не завершена.
+
+
 ## Русский
 - Исправлен вылет при запуске с чистой копией Windows-данных, содержащей выбор DirectX в game/hlvr/cfg/boot.vcfg. Перед каждым запуском лаунчер автоматически выбирает Vulkan.
 - Исходный boot.vcfg сохраняется в .runtime-backups/0.171-r3; остальные параметры файла сохраняются. Отсутствующий файл создаётся автоматически.

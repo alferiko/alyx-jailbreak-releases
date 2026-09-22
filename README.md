@@ -1,4 +1,4 @@
-# Alyx Jailbreak — 0.171
+# Alyx Jailbreak — 0.172
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
@@ -6,6 +6,14 @@ Standalone Half-Life: Alyx runtime/launcher for Meta Quest 3, using an ARM64
 game runtime and the Quest Turnip rendering path. This is the public **release
 repository**: application source code, build tools, signing keys and research
 files are not published here.
+
+## 0.172 — asymmetric stereo projection
+
+- Apply `vr_symmetric_fov 0` automatically on every launch in all four FDM/MSAA modes.
+- Addresses stretched geometry and inconsistent eye images observed on affected headsets. Correct output was confirmed by the project owner in the Turnip diagnostic build.
+- Retain Turnip, memory optimizations, pipeline caching, RU/EN launcher and bundled runtime from 0.171-r3. No heavy tracing or diagnostic UI.
+- APK versionName 0.172, versionCode 174. Install over 0.171-r3 or diagnostic builds; preserve game data and saves.
+- This is not a general MSAA or stutter fix. Full visual validation of all four modes is still pending.
 
 ## Version 0.171
 
@@ -26,9 +34,9 @@ Revision **0.171-r2** fixes startup error **20** after a fresh installation: the
 
 ## Installation
 
-1. Download `Alyx-Jailbreak-0.171-r3.apk` from [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.171-r3).
+1. Download `Alyx-Jailbreak-0.172.apk` from [Releases](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.172).
 2. Sideload it to your Quest 3 with your usual APK installer, or run
-   `adb install -r Alyx-Jailbreak-0.171-r3.apk`.
+   `adb install -r Alyx-Jailbreak-0.172.apk`.
 3. Copy the **game** folder from your Windows installation to
    `/sdcard/AlyxJailbreak/game/` (including all VPK parts and shader files).
    The APK includes the missing ARM64/Linux runtime and installs it automatically
