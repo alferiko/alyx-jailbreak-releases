@@ -1,4 +1,36 @@
-# 0.171-r3
+# Alyx Jailbreak 0.173
+
+## Русский
+
+Сборка из последней `main`: `04548e3913934a4e2e25495cfd374f49043c2b36`. Android versionName **0.173**, versionCode **362**.
+
+- Steam Workshop прямо на Quest: каталог, скачивание через Steam Guard и установка, включая дополнения-замены без addoninfo. Для скачивания нужен аккаунт с Alyx.
+- Отдельный выбор языка интерфейса/субтитров игры.
+- Три режима рендера: без фовеации, с фовеацией, с фовеацией и центральным MSAA 2×; независимое мягкое масштабирование.
+- Исправлены файловые блокировки WebM-видео и переполнение реестра ресурсов глубины, выявленное при вылете в настройках.
+- Оптимизированный режим **alpha**, по умолчанию выключен: редактируемый пресет 67% / мягкая фильтрация / фовеация с центральным MSAA. Качество графики сохраняется отдельно для обычного и alpha-режимов.
+- Проверка обновлений и автоскачивание APK из GitHub с проверкой SHA256, подписи, пакета и версии. Установку подтверждает Android.
+
+Установите `Alyx-Jailbreak-0.173.apk` поверх предыдущей версии без удаления приложения. Подпись прежняя, сохранения остаются. Инструкции: [README.ru.md](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+
+Все три нативных варианта пересобраны. Пройдены локальные тесты Workshop, runtime, конфигурации запуска, локализации, рендера и настроек. Проверены подпись, сертификат, метаданные, выравнивание APK и неизменность полезного содержимого при присвоении номера версии. Этот APK не проходил новую установку и игровой прогон на Quest; последнее исправление вылета в настройках требует проверки на устройстве. Alpha не гарантирует 72 FPS или отсутствие подлагиваний. Объёмный туман остаётся выключенным.
+
+## English
+
+Built from latest source `main`: `04548e3913934a4e2e25495cfd374f49043c2b36`. Android versionName **0.173**, versionCode **362**.
+
+- Steam Workshop on Quest: browsing, Steam Guard downloads and installation, including replacement addons without addoninfo. Downloads require an account that owns Alyx.
+- Separate game interface/subtitle language selection.
+- Three render modes: no foveation, foveation, and foveation with central MSAA 2×; independent soft image scaling.
+- Fixes for WebM file locks and depth-resource registry exhaustion identified in the settings crash.
+- Optional **alpha** optimized mode, off by default: editable 67% / soft filtering / foveation with central MSAA preset. Graphics quality is saved separately for normal and alpha modes.
+- GitHub update checks and automatic APK downloads with SHA256, certificate, package and version verification. Android confirms installation.
+
+Install `Alyx-Jailbreak-0.173.apk` over the previous version without uninstalling. The signing certificate is unchanged and saves are retained. Instructions: [README.md](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
+
+All three native variants were rebuilt. Local Workshop, runtime, startup configuration, localization, rendering and settings tests passed. APK signature, certificate, metadata, alignment and unchanged payload after version packaging were verified. This APK has not had a new Quest installation/gameplay run; the latest settings-crash fix still needs on-device reproduction testing. Alpha does not guarantee 72 FPS or stutter-free gameplay. Volumetric fog remains disabled.
+
+Verify the download against the attached `SHA256SUMS.txt`.
 
 ## 0.172 — asymmetric stereo projection
 
@@ -16,6 +48,8 @@
 - Версия APK 0.172, versionCode 174. Установка поверх 0.171-r3 или диагностики, без удаления данных и сохранений.
 - Это не общее исправление MSAA или подлагиваний. Полная визуальная проверка всех четырёх режимов ещё не завершена.
 
+
+# 0.171-r3
 
 ## Русский
 - Исправлен вылет при запуске с чистой копией Windows-данных, содержащей выбор DirectX в game/hlvr/cfg/boot.vcfg. Перед каждым запуском лаунчер автоматически выбирает Vulkan.
@@ -62,4 +96,3 @@
 - Качество MSAA и подлагивания остаются предметом дальнейшей работы.
 
 Quest startup and display were additionally confirmed by the owner after installation. / Запуск и изображение на Quest дополнительно подтверждены владельцем после установки.
-
