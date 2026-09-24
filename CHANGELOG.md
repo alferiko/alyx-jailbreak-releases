@@ -1,3 +1,35 @@
+# Alyx Jailbreak 0.174
+
+## Русский
+
+Сборка из `main`: `b2302d504d22f6dfd12c5377d51d081ce3e21991`. Android versionName **0.174**, versionCode **485**; пакет и сертификат подписи прежние.
+
+- Исправлена установка Workshop: VPK остаются целыми архивами, включая разделённые и несколько архивов; игровые ресурсы не распаковываются в отдельные файлы. Сохраняются или создаются метаданные дополнения. Новые папки получают короткие имена до 20 букв/цифр, существующие управляемые папки сохраняются при обновлении. Проверяются CRC, поддерживаются отмена и восстановление после сбоя.
+- Общий кеш графических конвейеров, увеличенный сохраняемый кеш и параллельная компиляция центрального MSAA. Выборочный обход FlushAndWait сохраняет обратные вызовы завершения.
+- Оптимизированный режим выставляет **максимальное разрешение текстур 1024**, масштаб 67%, мягкую фильтрацию и центральный MSAA. **Бюджет пула текстур не меняется**; ручные настройки можно менять после включения пресета.
+- Четыре режима рендера, включая фовеацию Quest без MSAA.
+- Встроенный runtime сохранён полностью: **147 файлов**, прежние пути распаковки, размеры и SHA256 как в 0.172. Проверены все нативные библиотеки готового APK и три библиотеки режимов рендера.
+
+Установите `Alyx-Jailbreak-0.174.apk` поверх предыдущей версии и нажмите **Проверить кеш**. Удалять приложение или заново копировать игровые данные не нужно. Дополнения включаются вручную в меню игры. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+
+Пройдены 74 проверки Workshop, тесты меню/языка, runtime, пресетов сборки и рендера. Runtime распакован производственным установщиком и сверен с 0.172. Проверены подпись, сертификат и выравнивание APK. Тестовая сборка 483 установлена на Quest, лаунчер запускался; финальный публичный APK и загрузка упакованных дополнений в игре не проходили новый игровой прогон. Оптимизированный режим остаётся alpha; объёмный туман выключен.
+
+## English
+
+Built from `main`: `b2302d504d22f6dfd12c5377d51d081ce3e21991`. Android versionName **0.174**, versionCode **485**; unchanged package and signing certificate.
+
+- Workshop installation now keeps VPKs packed, including split and multiple archives, instead of extracting game resources into loose files. Addon metadata is preserved or generated. New folders use short names of up to 20 letters/digits; existing managed folders keep their path during updates. Includes CRC validation, cancellation and crash recovery.
+- Shared pipeline caching, larger persistent caches and parallel central-MSAA compilation. The selective FlushAndWait bypass preserves completion callbacks.
+- Optimized mode sets **maximum texture resolution to 1024**, 67% render scale, soft filtering and central MSAA. **The texture-pool budget is unchanged**; settings remain editable after applying the preset.
+- Four render modes, including Quest foveation without MSAA.
+- Complete bundled runtime retained: **147 files**, matching 0.172 destination paths, sizes and SHA256. All packaged native libraries and the three render-mode libraries were verified.
+
+Install `Alyx-Jailbreak-0.174.apk` over the previous version and select **Check files**. No uninstall or game-data recopy is needed. Enable addons manually in the game's menu. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
+
+Passed 74 Workshop checks and tests for menu/language, runtime, build presets and render settings. The runtime was unpacked with the production extractor and compared with 0.172. APK signature, certificate and alignment were verified. Test build 483 was installed on Quest and its launcher started; the final public APK and packed-addon loading in the game have not had a new gameplay run. Optimized mode remains alpha; volumetric fog stays disabled.
+
+Verify the APK using the attached `SHA256SUMS.txt`.
+
 # Alyx Jailbreak 0.173-r1 — runtime packaging hotfix
 
 ## Русский

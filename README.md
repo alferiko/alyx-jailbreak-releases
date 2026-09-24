@@ -1,29 +1,27 @@
-# Alyx Jailbreak — 0.173-r1
+# Alyx Jailbreak — 0.174
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
 
-## 0.173-r1 — runtime hotfix
+## What's new in 0.174
 
-Restores the missing bundled ARM64/Linux runtime in 0.173: all 147 files and their original destination paths match 0.172. The complete archive was unpacked with the production installer and every file was verified by SHA256. Install this update over the existing app and select **Check files**. No uninstall or game-data recopy is needed. VersionName **0.173-r1**, versionCode **363**, unchanged signing certificate.
+Built from source `main` commit `b2302d504d22f6dfd12c5377d51d081ce3e21991`. Android versionName **0.174**, versionCode **485**, package `com.alf.alyxquest`.
 
-## What's new in 0.173
+- Workshop addons now keep their VPK archives intact instead of extracting game assets into loose files. Split archives and multiple archives are supported. Addon metadata is preserved or generated when missing; new folder names use up to 20 letters/digits, with collision handling. Existing managed addons keep their folder during updates. CRC checks and transactional replacement protect the previous installation on failure.
+- Shared pipeline caching, larger persistent caches and parallel compilation for central MSAA reduce compilation stalls. The selective FlushAndWait bypass preserves completion callbacks.
+- Enabling **Optimized mode (alpha)** sets **Maximum texture resolution to 1024**, central MSAA with foveation, 67% render scale and soft filtering. It leaves the texture-pool budget unchanged. Settings remain editable; selecting On again reapplies the preset. Turning it off retains the visible settings. In-game graphics quality is saved separately for normal and alpha modes.
+- Four render modes: no foveation, foveation, foveation with central MSAA 2×, and Quest foveation without MSAA. Pixel or soft bilinear scaling is selected separately.
+- The complete bundled ARM64/Linux runtime is retained: all 147 files, hashes and destination paths match 0.172. No separate ARM depot download is needed.
 
-Built from source `main` commit `04548e3913934a4e2e25495cfd374f49043c2b36`. Android versionName **0.173**, versionCode **362**, package `com.alf.alyxquest`.
+Steam Workshop browsing is available without login. Downloads require a Steam account that owns Alyx and Steam Guard authentication. Enable installed addons in Alyx's Addons menu; installation does not enable them automatically. Passwords and tokens are not saved.
 
-- Steam Workshop tab with browsing and direct downloads on Quest, including replacement addons without embedded addon metadata. Browsing needs no login; downloads require a Steam account that owns Alyx and Steam Guard authentication. Enable installed addons in Alyx's Addons menu. Passwords and tokens are not saved.
-- Game interface/subtitle language selection, separate from the RU/EN launcher switch.
-- Three rendering modes: no foveation, foveation, and foveation with central MSAA 2×. The MSAA path targets the central area of each eye.
-- Independent pixel or soft bilinear image scaling, and a WebM video file-lock fix for Quest shared storage.
-- Optional **Optimized mode (alpha)**, disabled by default. Enabling it applies an editable preset: central MSAA with foveation, 67% scale and soft filtering, plus alpha rendering policies. You can then adjust the visible controls. Selecting On again reapplies the preset. Turning it off retains those visible settings. In-game graphics quality is saved separately for normal and alpha modes.
-- Fix for the depth-resource registry exhaustion identified in the in-game settings crash.
-- Launcher update checks and automatic APK downloads from this repository, with size, SHA256, package, signing-certificate and version checks. Installation requires Android confirmation. Automatic downloads can be disabled in Help.
+The launcher checks this repository for updates and can download APKs automatically, verifying size, SHA256, package, signing certificate and version. Android confirms installation. Automatic downloads can be disabled in Help.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.173-r1.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.173-r1/Alyx-Jailbreak-0.173-r1.apk).
-2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.173-r1.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.174.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.174/Alyx-Jailbreak-0.174.apk).
+2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.174.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
 3. For a first installation, copy the **game** folder from your own Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file.
 4. Open the launcher, allow file access, choose **Check files**, then **Launch**. The bundled ARM64/Linux runtime is installed automatically; a separate ARM depot copy is unnecessary.
 5. Use the header's RU/EN button for the launcher language. Game interface/subtitle language is a separate setting.
@@ -34,9 +32,9 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 ## Validation and limitations
 
-- All three native variants were rebuilt from the specified `main` commit. APK signature, unchanged signing certificate, package/version, alignment and payload parity after public version metadata packaging were verified.
-- Local tests passed for Workshop installation/recovery, game menu/language, runtime extraction/repair, Vulkan boot configuration, localization, render modes, scaling, graphics-quality persistence and the editable alpha preset.
-- Hotfix 0.173-r1 was installed on Quest. The installed APK runtime installer processed all 147 files in the selected game folder; all 146 managed file hashes match, and custom gameinfo was preserved. A full gameplay pass and live reproduction of the settings-crash fix remain unverified.
+- All three native libraries serving the four render modes were rebuilt from the specified `main` commit. APK signature, unchanged signing certificate, package/version and alignment were verified. Packaged native libraries were checked against build outputs; the bundled runtime was compared with 0.172 by path, size and SHA256 and unpacked with the production extractor.
+- Local tests passed for packed Workshop installation/recovery (74 checks), game menu/language, runtime packaging/extraction/repair, build presets, render-mode selection and the editable alpha preset.
+- The packed-addon test build 483 was installed on Quest and its launcher started successfully. The final public APK has not had a new on-device gameplay run; packed-addon loading in the game remains unverified.
 - Optimized mode is alpha. Sustained 72 FPS, stable frame pacing and a complete playthrough are not guaranteed. Foveation reduces peripheral detail.
 - Volumetric fog remains disabled to avoid previously observed GPU freezes. Stutter and rendering investigations continue.
 
