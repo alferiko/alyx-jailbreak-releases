@@ -1,3 +1,35 @@
+# Alyx Jailbreak 0.173-r1 — runtime packaging hotfix
+
+## Русский
+
+Исправлена ошибка упаковки 0.173: в APK отсутствовали `assets/runtime/manifest.json` и `assets/runtime/payload.zip`. Поэтому на чистой копии Windows-данных лаунчер не устанавливал необходимые ARM64/Linux-библиотеки.
+
+- Восстановлен полный комплект runtime из 0.172: **147 файлов, 430 012 064 байта после распаковки**. Архив и манифест побайтно сверены с предоставленным APK 0.172.
+- Сохранены прежние пути внутри выбранной папки игры (по умолчанию `/sdcard/AlyxJailbreak`): `client-runtime`, `game/bin/linuxsteamrtarm64`, `game/hlvr/bin/linuxsteamrtarm64`, `pango-runtime`, `panorama-runtime`, `usr/lib/aarch64-linux-gnu`, `gnu-unique`, `loader-cycle` и `game/hlvr/gameinfo.gi`; создаётся папка `lib`.
+- Сохранены резервирование заменяемых файлов и защита пользовательского `gameinfo.gi`. Сохранения и игровые VPK не входят в распаковываемый комплект.
+- Сборщик теперь обязательно добавляет runtime и проверяет его состав, размеры, SHA256 и наличие обоих assets в готовом APK. Регрессионная проверка отклоняет ошибочный 0.173.
+- Android versionName **0.173-r1**, versionCode **363**; сертификат подписи прежний. Возможности 0.173 сохранены, оптимизированный режим остаётся alpha.
+
+Установите `Alyx-Jailbreak-0.173-r1.apk` поверх предыдущей версии. Откройте лаунчер и нажмите **Проверить кеш**: он проверит и установит недостающие библиотеки. Подготовка runtime также выполняется перед запуском. Удалять приложение или заново копировать игровые данные не нужно.
+
+Проверена полная распаковка производственным Java-установщиком в пустую тестовую папку: все 147 путей, размеры и SHA256, создание `lib` и повторный быстрый запуск. Также пройдены тесты восстановления, резервирования и сохранения пользовательских настроек. На Quest установлен 0.173-r1 и вызван штатный установщик APK в выбранной папке `/storage/emulated/0/AlyxJailbreak`: обработаны 147 файлов, SHA256 всех 146 управляемых файлов совпали; пользовательский `game/hlvr/gameinfo.gi` сохранён. Полный игровой прогон не выполнялся.
+
+## English
+
+Fixes a 0.173 packaging regression: `assets/runtime/manifest.json` and `assets/runtime/payload.zip` were missing, preventing installation of the ARM64/Linux runtime with fresh Windows game data.
+
+- Restores the complete 0.172 runtime: **147 files, 430,012,064 unpacked bytes**. Both assets match the supplied 0.172 APK byte for byte.
+- Preserves all destination paths under the selected game folder (default `/sdcard/AlyxJailbreak`): `client-runtime`, `game/bin/linuxsteamrtarm64`, `game/hlvr/bin/linuxsteamrtarm64`, `pango-runtime`, `panorama-runtime`, `usr/lib/aarch64-linux-gnu`, `gnu-unique`, `loader-cycle` and `game/hlvr/gameinfo.gi`, plus the `lib` directory.
+- Retains replacement backups and custom gameinfo protection. The payload does not manage saves or game VPK files.
+- The build now requires the runtime, verifies every size and SHA256, and rejects APKs with missing or altered runtime assets. The regression test rejects the broken 0.173 APK.
+- Android versionName **0.173-r1**, versionCode **363**, unchanged signing certificate. All 0.173 features are retained; optimized mode remains alpha.
+
+Install over the previous version and select **Check files** in the launcher to verify and install missing libraries. Runtime preparation also runs before launch. No uninstall or game-data recopy is needed.
+
+The production Java installer was tested with all 147 files in a fresh directory, verifying every destination and SHA256, the `lib` directory and the repeated quick path. Repair, backup and custom-settings tests also passed. On Quest, 0.173-r1 was installed and its production runtime installer processed all 147 files under the selected `/storage/emulated/0/AlyxJailbreak` folder. All 146 managed file hashes match; custom `game/hlvr/gameinfo.gi` was preserved. A full gameplay run was not performed.
+
+Verify the APK using the attached `SHA256SUMS.txt`.
+
 # Alyx Jailbreak 0.173
 
 ## Русский

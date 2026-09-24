@@ -1,8 +1,12 @@
-# Alyx Jailbreak — 0.173
+# Alyx Jailbreak — 0.173-r1
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
+
+## 0.173-r1 — runtime hotfix
+
+Restores the missing bundled ARM64/Linux runtime in 0.173: all 147 files and their original destination paths match 0.172. The complete archive was unpacked with the production installer and every file was verified by SHA256. Install this update over the existing app and select **Check files**. No uninstall or game-data recopy is needed. VersionName **0.173-r1**, versionCode **363**, unchanged signing certificate.
 
 ## What's new in 0.173
 
@@ -18,8 +22,8 @@ Built from source `main` commit `04548e3913934a4e2e25495cfd374f49043c2b36`. Andr
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.173.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.173/Alyx-Jailbreak-0.173.apk).
-2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.173.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.173-r1.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.173-r1/Alyx-Jailbreak-0.173-r1.apk).
+2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.173-r1.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
 3. For a first installation, copy the **game** folder from your own Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file.
 4. Open the launcher, allow file access, choose **Check files**, then **Launch**. The bundled ARM64/Linux runtime is installed automatically; a separate ARM depot copy is unnecessary.
 5. Use the header's RU/EN button for the launcher language. Game interface/subtitle language is a separate setting.
@@ -32,7 +36,7 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 - All three native variants were rebuilt from the specified `main` commit. APK signature, unchanged signing certificate, package/version, alignment and payload parity after public version metadata packaging were verified.
 - Local tests passed for Workshop installation/recovery, game menu/language, runtime extraction/repair, Vulkan boot configuration, localization, render modes, scaling, graphics-quality persistence and the editable alpha preset.
-- This release APK has **not** undergone a new on-device installation or full gameplay pass. Earlier builds have Quest checks documented during development; the latest settings-crash fix still needs live reproduction testing.
+- Hotfix 0.173-r1 was installed on Quest. The installed APK runtime installer processed all 147 files in the selected game folder; all 146 managed file hashes match, and custom gameinfo was preserved. A full gameplay pass and live reproduction of the settings-crash fix remain unverified.
 - Optimized mode is alpha. Sustained 72 FPS, stable frame pacing and a complete playthrough are not guaranteed. Foveation reduces peripheral detail.
 - Volumetric fog remains disabled to avoid previously observed GPU freezes. Stutter and rendering investigations continue.
 
