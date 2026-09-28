@@ -1,27 +1,30 @@
-# Alyx Jailbreak — 0.174
+# Alyx Jailbreak — 0.175
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
 
-## What's new in 0.174
+## What's new in 0.175
 
-Built from source `main` commit `b2302d504d22f6dfd12c5377d51d081ce3e21991`. Android versionName **0.174**, versionCode **485**, package `com.alf.alyxquest`.
+Built from source `main` commit `2aeef3616253f843718685930e9bb5332e2ce381`. Android versionName **0.175**, versionCode **682**, package `com.alf.alyxquest`. The signing certificate is unchanged.
 
-- Workshop addons now keep their VPK archives intact instead of extracting game assets into loose files. Split archives and multiple archives are supported. Addon metadata is preserved or generated when missing; new folder names use up to 20 letters/digits, with collision handling. Existing managed addons keep their folder during updates. CRC checks and transactional replacement protect the previous installation on failure.
-- Shared pipeline caching, larger persistent caches and parallel compilation for central MSAA reduce compilation stalls. The selective FlushAndWait bypass preserves completion callbacks.
-- Enabling **Optimized mode (alpha)** sets **Maximum texture resolution to 1024**, central MSAA with foveation, 67% render scale and soft filtering. It leaves the texture-pool budget unchanged. Settings remain editable; selecting On again reapplies the preset. Turning it off retains the visible settings. In-game graphics quality is saved separately for normal and alpha modes.
-- Four render modes: no foveation, foveation, foveation with central MSAA 2×, and Quest foveation without MSAA. Pixel or soft bilinear scaling is selected separately.
-- The complete bundled ARM64/Linux runtime is retained: all 147 files, hashes and destination paths match 0.172. No separate ARM depot download is needed.
+- New release profile with direct rendering and a pinned XEMU driver containing 23 verified patches. These address memory cleanup, command-buffer reuse, visibility fences and submission recovery. No overall FPS gain is claimed from the memory fixes.
+- This build uses **no foveation or MSAA**. The old four-mode selector is replaced by the current main release profile. Ordinary reprojection offers **Basic / Off**; Basic limits new game frames to 36 per second while headset rotation correction remains active. Depth reprojection and AppSW are unavailable.
+- Selecting **Performance → On** applies **67% render resolution**, soft scaling and a **1024 px maximum texture resolution**. It disables shadows and reduces particles/effects. **The texture-pool budget is unchanged.** Manual changes remain available; selecting On again restores the preset, and Off retains visible settings. Autosaves and transparent objects are preserved.
+- Asynchronous eye transfer, shared/persistent pipeline caching and the simulation-timing correction are included.
+- Optional **Compress cache** in Main settings processes textures and eligible large static models directly on Quest. Ordinary textures use existing mip levels up to 1024 px; eligible models use an authored lower-detail level. Special textures and unsupported models are preserved. Pause/Resume and recovery after interruption are supported.
+- Packed Workshop installation is retained, with short folder names, CRC verification and recovery after failed updates. The full 147-file ARM64/Linux runtime and its installation paths are retained.
 
-Steam Workshop browsing is available without login. Downloads require a Steam account that owns Alyx and Steam Guard authentication. Enable installed addons in Alyx's Addons menu; installation does not enable them automatically. Passwords and tokens are not saved.
+## Cache compression
 
-The launcher checks this repository for updates and can download APKs automatically, verifying size, SHA256, package, signing certificate and version. Android confirms installation. Automatic downloads can be disabled in Help.
+Compression changes game resources and can reduce their detail. Files and VPK parts are processed one at a time. Each backup is deleted after that file is verified and its index updated. **Stop safely restores only the unfinished file; completed files remain compressed.** Restoring their original detail requires copying the original game files again. Saves, configuration, runtime and Workshop addons are outside the compression scan.
+
+Free space is needed for the current file's backup and index; a large standalone VPK still requires room for its own backup. Finish compression or use Stop safely before launching the game. Opening the launcher resumes interrupted work unless it was explicitly paused.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.174.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.174/Alyx-Jailbreak-0.174.apk).
-2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.174.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.175.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.175/Alyx-Jailbreak-0.175.apk).
+2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.175.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
 3. For a first installation, copy the **game** folder from your own Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file.
 4. Open the launcher, allow file access, choose **Check files**, then **Launch**. The bundled ARM64/Linux runtime is installed automatically; a separate ARM depot copy is unnecessary.
 5. Use the header's RU/EN button for the launcher language. Game interface/subtitle language is a separate setting.
@@ -32,16 +35,16 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 ## Validation and limitations
 
-- All three native libraries serving the four render modes were rebuilt from the specified `main` commit. APK signature, unchanged signing certificate, package/version and alignment were verified. Packaged native libraries were checked against build outputs; the bundled runtime was compared with 0.172 by path, size and SHA256 and unpacked with the production extractor.
-- Local tests passed for packed Workshop installation/recovery (74 checks), game menu/language, runtime packaging/extraction/repair, build presets, render-mode selection and the editable alpha preset.
-- The packed-addon test build 483 was installed on Quest and its launcher started successfully. The final public APK has not had a new on-device gameplay run; packed-addon loading in the game remains unverified.
-- Optimized mode is alpha. Sustained 72 FPS, stable frame pacing and a complete playthrough are not guaranteed. Foveation reduces peripheral detail.
-- Volumetric fog remains disabled to avoid previously observed GPU freezes. Stutter and rendering investigations continue.
+- Verified APK signature, unchanged signing certificate, package/version and alignment. All 17 packaged ARM64 libraries match the build output. The pinned driver and all 23 included patch hashes were checked; experimental marker overrides and diagnostic manifest flags are disabled.
+- All 147 runtime files match 0.172 by path, size and SHA256. The complete archive was unpacked with the production installer and verified again.
+- Passed Workshop checks (74), cache compression checks (2,443), runtime tests, launcher settings/localization, preset/manual-override tests, release build guards and native reprojection/frame-pacing/prediction tests.
+- The earlier RC 673 reached the heavy `s0/quick` scene on Quest with the same pinned driver. The final 0.175 APK has not had a new on-device gameplay run or full visual acceptance test. Sustained 72 FPS, stable frame pacing and a complete playthrough are not guaranteed.
+- No antialiasing is enabled; edges can look jagged. Volumetric fog remains disabled to avoid previously observed GPU freezes.
 
 See [CHANGELOG](CHANGELOG.md) for earlier releases and [SHA256SUMS](SHA256SUMS.txt) to verify the current APK.
 
 ## Reports
 
-Use [Issues](https://github.com/alferiko/alyx-jailbreak-releases/issues) and include version, headset/OS, rendering mode, alpha setting, scale, map/save location and reproduction steps. Avoid sharing game content or private information in logs.
+Use [Issues](https://github.com/alferiko/alyx-jailbreak-releases/issues) and include version, headset/OS, Performance setting, reprojection, scale, cache-compression status, map/save location and reproduction steps. Avoid sharing game content or private information in logs.
 
 Unofficial project, not affiliated with Valve or Meta. Product names and trademarks belong to their owners. Third-party notices are included in the APK. No new source-code license is granted by this repository.

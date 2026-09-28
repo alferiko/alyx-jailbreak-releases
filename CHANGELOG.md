@@ -1,3 +1,37 @@
+# Alyx Jailbreak 0.175
+
+## Русский
+
+Последний `main` с исправлением пресета: `2aeef3616253f843718685930e9bb5332e2ce381`. Android versionName **0.175**, versionCode **682**. Прежние пакет и подпись позволяют установить обновление поверх приложения.
+
+- Релизный профиль прямого рендера и драйвер XEMU с 23 проверенными патчами памяти, синхронизации и восстановления после ошибок.
+- **Фовеация и MSAA выключены.** Репроекция Basic / Off; в Basic — до 36 новых игровых кадров/с с системной коррекцией поворотов. AppSW и репроекция по глубине недоступны.
+- При выборе **«Производительность → Вкл» — 67% рендера**, мягкое масштабирование, текстуры до **1024**, отключение теней и сокращение эффектов. Бюджет пула текстур не меняется. Ручные настройки сохраняются до повторного выбора пресета.
+- Асинхронная передача изображений глаз, общий/сохраняемый кеш конвейеров и исправление темпа симуляции.
+- Опциональное сжатие кеша прямо на Quest с паузой и продолжением. Оно уменьшает детализацию подходящих текстур и крупных статических моделей. Бекапы удаляются после обработки каждого файла; **«Завершить досрочно» откатывает только незавершённый файл**. Для полного возврата детализации нужны оригинальные игровые файлы. Сохранения, runtime и Workshop не затрагиваются.
+- Сохранены упакованные дополнения Workshop и все **147 файлов runtime**, совпадающие с 0.172 по хешам и путям. Проверены все **17 нативных библиотек**.
+
+Проверены подпись, выравнивание, комплект библиотек, полная распаковка runtime, 74 проверки Workshop, 2443 проверки сжатия, настройки и нативный темп кадров. RC 673 с тем же драйвером загружал `s0/quick` на Quest; финальная 0.175 не проходила новый игровой прогон и полную визуальную проверку. Рост FPS не обещается, сглаживание и объёмный туман выключены.
+
+[Скачать APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.175/Alyx-Jailbreak-0.175.apk), установить поверх предыдущей версии и нажать **Проверить кеш**. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+
+## English
+
+Latest `main` with the preset correction: `2aeef3616253f843718685930e9bb5332e2ce381`. Android versionName **0.175**, versionCode **682**. Package and signing certificate are unchanged for installation over the existing app.
+
+- Direct-rendering release profile and XEMU driver with 23 verified memory, synchronization and failure-recovery patches.
+- **Foveation and MSAA are disabled.** Reprojection offers Basic / Off; Basic allows up to 36 new game frames/s with system rotation correction. AppSW and depth reprojection are unavailable.
+- Selecting **Performance → On sets 67% render resolution**, soft scaling, textures up to **1024**, shadows off and reduced effects. The texture-pool budget is unchanged. Manual settings remain until the preset is explicitly selected again.
+- Asynchronous eye transfer, shared/persistent pipeline caches and the simulation-timing correction.
+- Optional on-device cache compression with Pause/Resume. It reduces detail in eligible textures and large static models. Backups are deleted after each completed file; **Stop safely rolls back only the unfinished file**. Restoring full detail requires the original game files. Saves, runtime and Workshop addons are excluded.
+- Packed Workshop addons and all **147 runtime files** are retained, with 0.172 hashes and destination paths. All **17 native libraries** were checked.
+
+Verified signature, alignment, library payload, full runtime extraction, 74 Workshop checks, 2,443 compression checks, settings and native frame pacing. RC 673 reached `s0/quick` on Quest with the same driver; final 0.175 has not had a new gameplay run or full visual acceptance test. No FPS gain is promised; antialiasing and volumetric fog are disabled.
+
+[Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.175/Alyx-Jailbreak-0.175.apk), install over the previous version and select **Check files**. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
+
+Verify the download with the attached `SHA256SUMS.txt`.
+
 # Alyx Jailbreak 0.174
 
 ## Русский
