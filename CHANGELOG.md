@@ -1,3 +1,33 @@
+# Alyx Jailbreak 0.176 — hotfix, build 823
+
+## Русский
+
+Версия остаётся **0.176**, versionCode повышен до **823** для обновления поверх прежней сборки 807 и тестовой 822. Основа — проверенная на Quest 3 сборка `0.176-hotfix.822-rc1` из `main` `53ef8506a0c81509e37352532366c31a9404789d`. От неё отличаются только метаданные версии; код, библиотеки и ресурсы совпадают побайтно.
+
+- По умолчанию возвращены исходные теневые сравнения в шейдерах и генерация карт теней. Оптимизированный режим больше не подменяет этот путь; служебные файлы для включения хотфикса не нужны.
+- На проблемном сохранении пользователь подтвердил отсутствие зависания при появлении/скрытии рук и работу фонарика. В контрольном журнале GPU fault не зарегистрирован.
+- Остальные оптимизации, пресеты, сглаживание, растительность и runtime сохранены. Тяжёлая диагностика отключена во всех трёх вариантах рендера.
+- Это проверенный обход зависания на пути теневых шейдеров. Устранение конкретной утечки памяти не подтверждено. Возможно возвращение прежнего мерцания теней и затрат на их отрисовку; отдельная проверка главы 8 не выполнялась.
+
+Установите обновлённый `Alyx-Jailbreak-0.176.apk` поверх приложения. Версия в интерфейсе остаётся 0.176; в информации о пакете проверьте **versionCode 823**. Подпись прежняя, настройки и сохранения сохраняются. Автообновление различает сборки по контрольной сумме и коду версии.
+
+Проверены подпись, выравнивание, 19 нативных библиотек, 148 файлов runtime и отключение тяжёлой диагностики. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+
+## English
+
+The version remains **0.176**, with versionCode raised to **823** for installation over build 807 and test build 822. Based on Quest-tested `0.176-hotfix.822-rc1` from source `main` `53ef8506a0c81509e37352532366c31a9404789d`. Only version metadata differs from that APK; code, libraries and assets are byte-identical.
+
+- Restores original shader shadow comparisons and shadow-map generation by default. Performance mode no longer rewrites this path; no marker files are needed to enable the hotfix.
+- On the problematic save, the user confirmed no freeze when hands appear/disappear and a working flashlight. The observation log recorded no GPU fault.
+- Other optimizations, presets, antialiasing, vegetation and runtime are retained. Heavy diagnostics are disabled in all three renderers.
+- This is a verified workaround for a shadow-shader-path freeze. A specific memory-leak fix has not been established. Earlier shadow flicker and rendering costs may return; chapter 8 was not separately tested.
+
+Install the updated `Alyx-Jailbreak-0.176.apk` over the existing app. The displayed version stays 0.176; package information should show **versionCode 823**. Signing certificate, settings and saves are preserved. The updater distinguishes builds by checksum and version code.
+
+Verified signature, alignment, 19 native libraries, 148 runtime files and disabled heavy diagnostics. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
+
+Verify the current APK with the updated `SHA256SUMS.txt`. This asset replaces the original build 807 under the same release tag and download URL.
+
 # Alyx Jailbreak 0.176
 
 ## Русский

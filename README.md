@@ -4,15 +4,22 @@
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
 
-## What's new in 0.176
+## 0.176 hotfix — build 823
 
-Based on 0.176-rc1 (806), confirmed in gameplay on Quest 3, from source `main` `32ff1d35ab21403a03ac107059f98b95a49bdf88`. Public version **0.176**, versionCode **807**, package `com.alf.alyxquest`. Only version metadata changed; code, libraries and assets are byte-identical to the tested APK. The signing certificate is unchanged.
+The version remains **0.176**, with versionCode raised to **823** for installation over build 807 and test build 822. Based on Quest-tested `0.176-hotfix.822-rc1` from source `main` `53ef8506a0c81509e37352532366c31a9404789d`. Only version metadata differs from that APK; code, libraries and assets are byte-identical.
+
+- Restores original shader shadow comparisons and shadow-map generation by default. Performance mode no longer rewrites this path; no marker files are needed to enable the hotfix.
+- On the problematic save, the user confirmed no freeze when hands appear/disappear and a working flashlight. The observation log recorded no GPU fault.
+- Other optimizations, presets, antialiasing, vegetation and runtime are retained. Heavy diagnostics are disabled in all three renderers.
+- This is a verified workaround for a shadow-shader-path freeze. A specific memory-leak fix has not been established. Earlier shadow flicker and rendering costs may return; chapter 8 was not separately tested.
+
+## What's new in 0.176
 
 - **Quality** and **Speed** buttons apply graphics settings once. Quality: **85%** render resolution, **SMAA Ultra + TAA (test)**, model simplification off. Speed: **67%**, **SMAA Ultra + softening**, model simplification on. Both set textures to 1024, mip 0, automatic texture pool, linear scaling, basic reprojection, memory savings and vegetation simplification/hiding; MQSR is off. Manual changes remain until the preset is selected again. In-game graphics quality remains independent.
 - Independent **AA and MQSR** settings. AA options: Off, MSAA 2×, SMAA Medium, SMAA Ultra, SMAA Ultra with softening and experimental SMAA Ultra + TAA. Optional **67–92% dynamic resolution** targets 36 new game frames/s. Direct rendering without foveation; Basic / Off reprojection without AppSW.
 - Bundled simplified vegetation: **149 models and 152 materials**, installed as a separate VPK without overwriting stock game archives. Disable Hide vegetation to see plants; both presets enable hiding. Xen plants are excluded and collision data is preserved.
 - Updated Turnip driver with GMEM synchronization, descriptor lifetime, memory accounting, constant reuse and shader compiler fixes. Memory-saving and geometry-simplification options are included.
-- Corrected hand alignment, pistol double-press binding and animated loading text. Optional camera finger tracking supports controller fallback. The flashlight remains available while flickering shadows are suppressed in Performance mode.
+- Corrected hand alignment, pistol double-press binding and animated loading text. Optional camera finger tracking supports controller fallback. The hotfix preserves the flashlight and the original shadow path.
 - Packed Workshop installation and cache compression are retained. Compression controls hide after successful completion, precompressed caches are recognized, and launcher translations are expanded.
 
 The separate **Performance → On** switch still sets **67%** render resolution and **1024** textures without changing the pool budget. Quality/Speed additionally reset the pool to automatic.
@@ -37,7 +44,7 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 ## Validation and limitations
 
-- The user confirmed gameplay testing of 0.176-rc1 (806) on Quest 3. Only AndroidManifest.xml version metadata changed for the final APK; all executable code, 19 native libraries and assets match the tested build.
+- The user confirmed hotfix 822 on Quest 3: no hand-triggered freeze and a working flashlight. Only AndroidManifest.xml version metadata changed for the final APK; all executable code, 19 native libraries and assets match the tested build.
 - Verified signature, unchanged certificate, alignment, all three renderers, AA/MQSR settings and the pinned driver. All **148 runtime files** passed size/SHA256 checks and production extraction. The original 147 entries are preserved; only the vegetation VPK was added. All 301 VPK resources passed CRC/SHA256 checks.
 - Preset/manual-override, localization, Workshop, vegetation mounting and runtime extraction/recovery tests passed.
 - Heavy diagnostics are disabled in all three renderers: GPU/per-frame tracing, shader dumps, allocation tracing, Vulkan validation, diagnostic probes and Android debug/profileable modes. Bounded aggregate counters and lifecycle events from the tested build remain enabled.
