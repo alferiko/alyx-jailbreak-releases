@@ -1,19 +1,21 @@
-# Alyx Jailbreak — 0.175
+# Alyx Jailbreak — 0.176
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
 
-## What's new in 0.175
+## What's new in 0.176
 
-Built from source `main` commit `2aeef3616253f843718685930e9bb5332e2ce381`. Android versionName **0.175**, versionCode **682**, package `com.alf.alyxquest`. The signing certificate is unchanged.
+Based on 0.176-rc1 (806), confirmed in gameplay on Quest 3, from source `main` `32ff1d35ab21403a03ac107059f98b95a49bdf88`. Public version **0.176**, versionCode **807**, package `com.alf.alyxquest`. Only version metadata changed; code, libraries and assets are byte-identical to the tested APK. The signing certificate is unchanged.
 
-- New release profile with direct rendering and a pinned XEMU driver containing 23 verified patches. These address memory cleanup, command-buffer reuse, visibility fences and submission recovery. No overall FPS gain is claimed from the memory fixes.
-- This build uses **no foveation or MSAA**. The old four-mode selector is replaced by the current main release profile. Ordinary reprojection offers **Basic / Off**; Basic limits new game frames to 36 per second while headset rotation correction remains active. Depth reprojection and AppSW are unavailable.
-- Selecting **Performance → On** applies **67% render resolution**, soft scaling and a **1024 px maximum texture resolution**. It disables shadows and reduces particles/effects. **The texture-pool budget is unchanged.** Manual changes remain available; selecting On again restores the preset, and Off retains visible settings. Autosaves and transparent objects are preserved.
-- Asynchronous eye transfer, shared/persistent pipeline caching and the simulation-timing correction are included.
-- Optional **Compress cache** in Main settings processes textures and eligible large static models directly on Quest. Ordinary textures use existing mip levels up to 1024 px; eligible models use an authored lower-detail level. Special textures and unsupported models are preserved. Pause/Resume and recovery after interruption are supported.
-- Packed Workshop installation is retained, with short folder names, CRC verification and recovery after failed updates. The full 147-file ARM64/Linux runtime and its installation paths are retained.
+- **Quality** and **Speed** buttons apply graphics settings once. Quality: **85%** render resolution, **SMAA Ultra + TAA (test)**, model simplification off. Speed: **67%**, **SMAA Ultra + softening**, model simplification on. Both set textures to 1024, mip 0, automatic texture pool, linear scaling, basic reprojection, memory savings and vegetation simplification/hiding; MQSR is off. Manual changes remain until the preset is selected again. In-game graphics quality remains independent.
+- Independent **AA and MQSR** settings. AA options: Off, MSAA 2×, SMAA Medium, SMAA Ultra, SMAA Ultra with softening and experimental SMAA Ultra + TAA. Optional **67–92% dynamic resolution** targets 36 new game frames/s. Direct rendering without foveation; Basic / Off reprojection without AppSW.
+- Bundled simplified vegetation: **149 models and 152 materials**, installed as a separate VPK without overwriting stock game archives. Disable Hide vegetation to see plants; both presets enable hiding. Xen plants are excluded and collision data is preserved.
+- Updated Turnip driver with GMEM synchronization, descriptor lifetime, memory accounting, constant reuse and shader compiler fixes. Memory-saving and geometry-simplification options are included.
+- Corrected hand alignment, pistol double-press binding and animated loading text. Optional camera finger tracking supports controller fallback. The flashlight remains available while flickering shadows are suppressed in Performance mode.
+- Packed Workshop installation and cache compression are retained. Compression controls hide after successful completion, precompressed caches are recognized, and launcher translations are expanded.
+
+The separate **Performance → On** switch still sets **67%** render resolution and **1024** textures without changing the pool budget. Quality/Speed additionally reset the pool to automatic.
 
 ## Cache compression
 
@@ -23,8 +25,8 @@ Free space is needed for the current file's backup and index; a large standalone
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.175.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.175/Alyx-Jailbreak-0.175.apk).
-2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.175.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.176.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.176/Alyx-Jailbreak-0.176.apk).
+2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.176.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
 3. For a first installation, copy the **game** folder from your own Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file.
 4. Open the launcher, allow file access, choose **Check files**, then **Launch**. The bundled ARM64/Linux runtime is installed automatically; a separate ARM depot copy is unnecessary.
 5. Use the header's RU/EN button for the launcher language. Game interface/subtitle language is a separate setting.
@@ -35,11 +37,11 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 ## Validation and limitations
 
-- Verified APK signature, unchanged signing certificate, package/version and alignment. All 17 packaged ARM64 libraries match the build output. The pinned driver and all 23 included patch hashes were checked; experimental marker overrides and diagnostic manifest flags are disabled.
-- All 147 runtime files match 0.172 by path, size and SHA256. The complete archive was unpacked with the production installer and verified again.
-- Passed Workshop checks (74), cache compression checks (2,443), runtime tests, launcher settings/localization, preset/manual-override tests, release build guards and native reprojection/frame-pacing/prediction tests.
-- The earlier RC 673 reached the heavy `s0/quick` scene on Quest with the same pinned driver. The final 0.175 APK has not had a new on-device gameplay run or full visual acceptance test. Sustained 72 FPS, stable frame pacing and a complete playthrough are not guaranteed.
-- No antialiasing is enabled; edges can look jagged. Volumetric fog remains disabled to avoid previously observed GPU freezes.
+- The user confirmed gameplay testing of 0.176-rc1 (806) on Quest 3. Only AndroidManifest.xml version metadata changed for the final APK; all executable code, 19 native libraries and assets match the tested build.
+- Verified signature, unchanged certificate, alignment, all three renderers, AA/MQSR settings and the pinned driver. All **148 runtime files** passed size/SHA256 checks and production extraction. The original 147 entries are preserved; only the vegetation VPK was added. All 301 VPK resources passed CRC/SHA256 checks.
+- Preset/manual-override, localization, Workshop, vegetation mounting and runtime extraction/recovery tests passed.
+- Heavy diagnostics are disabled in all three renderers: GPU/per-frame tracing, shader dumps, allocation tracing, Vulkan validation, diagnostic probes and Android debug/profileable modes. Bounded aggregate counters and lifecycle events from the tested build remain enabled.
+- SMAA Ultra + TAA is experimental. Dynamic resolution does not guarantee the target frame rate. A full playthrough, every chapter transition and all plants/LODs have not been verified. Volumetric fog remains disabled.
 
 See [CHANGELOG](CHANGELOG.md) for earlier releases and [SHA256SUMS](SHA256SUMS.txt) to verify the current APK.
 

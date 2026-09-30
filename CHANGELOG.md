@@ -1,3 +1,49 @@
+# Alyx Jailbreak 0.176
+
+## Русский
+
+Основа — проверенная в игре на Quest 3 сборка 0.176-rc1 (806), исходный `main` `32ff1d35ab21403a03ac107059f98b95a49bdf88`. Публичная версия **0.176**, versionCode **807**, пакет `com.alf.alyxquest`. Изменены только метаданные версии; код, библиотеки и ресурсы побайтно совпадают с проверенным APK. Сертификат подписи прежний.
+
+- Кнопки **«Качество»** и **«Скорость»** однократно заполняют настройки графики. «Качество»: **85%** рендера, **SMAA Ultra + TAA (тест)**, упрощение моделей выключено. «Скорость»: **67%**, **SMAA Ultra + смягчение**, упрощение моделей включено. Оба пресета ставят текстуры 1024, mip 0, автоматический пул, линейное масштабирование, обычную репроекцию, экономию памяти и упрощение/скрытие растительности; MQSR выключен. Ручные изменения сохраняются до повторного нажатия пресета. Качество из меню самой игры остаётся отдельной настройкой.
+- Независимые настройки **AA и MQSR**. Сглаживание: выключено, MSAA 2×, SMAA Medium, SMAA Ultra, SMAA Ultra со смягчением и экспериментальный SMAA Ultra + TAA. Доступно динамическое разрешение **67–92%** с целью 36 новых игровых кадров/с. Прямой рендер без фовеации; Basic / Off для обычной репроекции, без AppSW.
+- Новый пакет упрощённой растительности: **149 моделей и 152 материала**. Он устанавливается отдельным VPK и не перезаписывает исходные игровые архивы. Чтобы увидеть растения, отключите «Скрывать растительность»; оба готовых пресета включают скрытие. Xen-растения в пакет не входят, коллизии сохранены.
+- Обновлён драйвер Turnip: исправления синхронизации GMEM, времени жизни дескрипторов, учёта памяти, повторного использования констант и проходов компилятора шейдеров. Включены настройки экономии памяти и упрощения геометрии.
+- Исправлены ориентация рук, двойное нажатие для режима стрельбы пистолета и анимированный текст загрузки. Доступен опциональный трекинг пальцев камерами с возвратом к контроллерам. Фонарик сохранён при отключении мерцающих теней в режиме производительности.
+- Сохранены Workshop с установкой целых VPK и сжатие кеша. После успешного сжатия его элементы управления скрываются; предварительно сжатый кеш распознаётся. Переводы лаунчера дополнены.
+
+Отдельный переключатель **«Производительность → Вкл»** по-прежнему задаёт **67%** и текстуры **1024**, не меняя бюджет пула. Кнопки «Качество»/«Скорость» дополнительно переводят пул в автоматический режим.
+
+- Пользователь подтвердил проверку 0.176-rc1 (806) в игре на Quest 3. У финального APK изменён только AndroidManifest.xml с номером версии; весь исполняемый код, 19 нативных библиотек и ресурсы совпадают с проверенной сборкой.
+- Проверены подпись, прежний сертификат, выравнивание, все три варианта рендера, настройки AA/MQSR и закреплённый драйвер. Все **148 файлов runtime** проверены по размеру и SHA256 и распакованы штатным установщиком. Прежние 147 записей сохранены; добавлен только VPK растительности. Все 301 ресурса VPK прошли CRC/SHA256-проверку.
+- Пройдены тесты пресетов, ручных изменений, локализации, Workshop, подключения растительности и распаковки/восстановления runtime.
+- Тяжёлая диагностика отключена во всех трёх вариантах: GPU/покадровые трассировки, дампы шейдеров, учёт аллокаций, Vulkan validation, диагностические пробы и режимы Android debug/profileable. Сохранены ограниченные сводные счётчики и события жизненного цикла проверенной сборки.
+- SMAA Ultra + TAA остаётся экспериментальным. Динамическое разрешение не гарантирует целевую частоту кадров. Полное прохождение, все переходы глав и все растения/LOD не проверены. Объёмный туман остаётся выключенным.
+
+Установите `Alyx-Jailbreak-0.176.apk` поверх предыдущей версии и нажмите **Проверить кеш**. Настройки и сохранения сохраняются. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+
+## English
+
+Based on 0.176-rc1 (806), confirmed in gameplay on Quest 3, from source `main` `32ff1d35ab21403a03ac107059f98b95a49bdf88`. Public version **0.176**, versionCode **807**, package `com.alf.alyxquest`. Only version metadata changed; code, libraries and assets are byte-identical to the tested APK. The signing certificate is unchanged.
+
+- **Quality** and **Speed** buttons apply graphics settings once. Quality: **85%** render resolution, **SMAA Ultra + TAA (test)**, model simplification off. Speed: **67%**, **SMAA Ultra + softening**, model simplification on. Both set textures to 1024, mip 0, automatic texture pool, linear scaling, basic reprojection, memory savings and vegetation simplification/hiding; MQSR is off. Manual changes remain until the preset is selected again. In-game graphics quality remains independent.
+- Independent **AA and MQSR** settings. AA options: Off, MSAA 2×, SMAA Medium, SMAA Ultra, SMAA Ultra with softening and experimental SMAA Ultra + TAA. Optional **67–92% dynamic resolution** targets 36 new game frames/s. Direct rendering without foveation; Basic / Off reprojection without AppSW.
+- Bundled simplified vegetation: **149 models and 152 materials**, installed as a separate VPK without overwriting stock game archives. Disable Hide vegetation to see plants; both presets enable hiding. Xen plants are excluded and collision data is preserved.
+- Updated Turnip driver with GMEM synchronization, descriptor lifetime, memory accounting, constant reuse and shader compiler fixes. Memory-saving and geometry-simplification options are included.
+- Corrected hand alignment, pistol double-press binding and animated loading text. Optional camera finger tracking supports controller fallback. The flashlight remains available while flickering shadows are suppressed in Performance mode.
+- Packed Workshop installation and cache compression are retained. Compression controls hide after successful completion, precompressed caches are recognized, and launcher translations are expanded.
+
+The separate **Performance → On** switch still sets **67%** render resolution and **1024** textures without changing the pool budget. Quality/Speed additionally reset the pool to automatic.
+
+- The user confirmed gameplay testing of 0.176-rc1 (806) on Quest 3. Only AndroidManifest.xml version metadata changed for the final APK; all executable code, 19 native libraries and assets match the tested build.
+- Verified signature, unchanged certificate, alignment, all three renderers, AA/MQSR settings and the pinned driver. All **148 runtime files** passed size/SHA256 checks and production extraction. The original 147 entries are preserved; only the vegetation VPK was added. All 301 VPK resources passed CRC/SHA256 checks.
+- Preset/manual-override, localization, Workshop, vegetation mounting and runtime extraction/recovery tests passed.
+- Heavy diagnostics are disabled in all three renderers: GPU/per-frame tracing, shader dumps, allocation tracing, Vulkan validation, diagnostic probes and Android debug/profileable modes. Bounded aggregate counters and lifecycle events from the tested build remain enabled.
+- SMAA Ultra + TAA is experimental. Dynamic resolution does not guarantee the target frame rate. A full playthrough, every chapter transition and all plants/LODs have not been verified. Volumetric fog remains disabled.
+
+Install `Alyx-Jailbreak-0.176.apk` over the previous version and select **Check files**. Settings and saves are retained. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
+
+Verify the download using the attached `SHA256SUMS.txt`.
+
 # Alyx Jailbreak 0.175
 
 ## Русский
