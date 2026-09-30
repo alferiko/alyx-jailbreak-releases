@@ -45,6 +45,14 @@
 
 История — в [CHANGELOG](CHANGELOG.md), контрольная сумма текущего APK — в [SHA256SUMS](SHA256SUMS.txt).
 
+## Поддержать разработку
+
+Поддержать разработку Alyx Jailbreak:
+
+- [DonationAlerts](https://dalink.to/zer0k0)
+- [Patreon](https://www.patreon.com/cw/zer0k0)
+- Криптокошелёк: `0x4aF6a047C0B66d72d00455aea235F8c5aC529E9f`
+
 ## Сообщения об ошибках
 
 В [Issues](https://github.com/alferiko/alyx-jailbreak-releases/issues) укажите версию, шлем/ОС, состояние режима «Производительность», репроекцию, масштаб и состояние сжатия кеша, карту/сохранение и шаги воспроизведения. Не публикуйте игровые данные или личную информацию из логов.

@@ -45,6 +45,14 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 See [CHANGELOG](CHANGELOG.md) for earlier releases and [SHA256SUMS](SHA256SUMS.txt) to verify the current APK.
 
+## Support
+
+You can support Alyx Jailbreak development:
+
+- [DonationAlerts](https://dalink.to/zer0k0)
+- [Patreon](https://www.patreon.com/cw/zer0k0)
+- Crypto wallet: `0x4aF6a047C0B66d72d00455aea235F8c5aC529E9f`
+
 ## Reports
 
 Use [Issues](https://github.com/alferiko/alyx-jailbreak-releases/issues) and include version, headset/OS, Performance setting, reprojection, scale, cache-compression status, map/save location and reproduction steps. Avoid sharing game content or private information in logs.

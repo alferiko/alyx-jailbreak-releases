@@ -1,7 +1,9 @@
-# Release documentation only; binary downloads belong in GitHub Releases.
+# Release documentation and funding links; binary downloads belong in GitHub Releases.
 *
 !.gitignore
 !README.md
 !README.ru.md
 !CHANGELOG.md
 !SHA256SUMS.txt
+!.github/
+!.github/FUNDING.yml
