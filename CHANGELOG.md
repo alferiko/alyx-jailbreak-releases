@@ -1,3 +1,39 @@
+# Alyx Jailbreak 0.177 — build 870
+
+## Русский
+
+Новая сборка из `main` **9e5b66d8f3851c244b64dd95a48aac9eaa5e7cd2**: Java, ресурсы и все три нативных варианта рендера собраны заново. Тестовый APK v869 использован для сверки. Версия **0.177**, versionCode **870**, пакет `com.alf.alyxquest`, сертификат подписи прежний.
+
+- Новый интерфейс лаунчера RU/EN с прежней иконкой.
+- Рендер MK2: обновлённый PGO-компилятор Turnip, кеш VRS, исправление блокировки readback, подготовка 606 pipeline с отдельными каталогами для всех трёх вариантов рендера.
+- Пять режимов AA: выключено, MSAA 2×, SMAA Medium, Ultra и Ultra со смягчением. VRS доступен без AA и с SMAA; MSAA временно отключает его, сохраняя выбор галочки. TAA из публичного меню убран.
+- Обратимые пресеты: **«Качество» — 85%, «Производительность» — 50%**, текстуры **1024 пикселя**, автоматический пул. **При первом переходе на MK2 применяется «Производительность» с 50% рендера.** Параметры можно изменить или вернуть кнопкой «Вернуть мои настройки». Ранее перенесённые настройки тестовой MK2-сборки сохраняются; 67% остаётся ручным выбором.
+- Возобновление загрузок Workshop с проверкой блоков; улучшенное сжатие кеша с сохранением детализации интерфейса, оружия/рук и читаемых надписей, усиленное восстановление после сбоев. Уже потерянная детализация требует оригинальных файлов.
+- Во всех рендерах отключены тяжёлая диагностика, покадровые профилировщики и runtime-телеметрия. Диагностические маркеры не включают их обратно.
+
+Проверены подпись, выравнивание, **19 библиотек**, **150 файлов runtime** и их штатная распаковка, **6573 записи хешей сборочных входов**, каталоги, пресеты, Workshop и восстановление кеша. Все прежние 148 файлов runtime сохранены.
+
+Для v869 документированы шесть холодных запусков тяжёлого сохранения на Quest 3 минимум по 150 секунд. **Новая сборка 870 отдельно на гарнитуре в игре не проверялась.** Каталог не гарантирует отсутствие рывков или полное покрытие кампании; конкретное устранение утечки памяти фонарика не заявляется.
+
+Установите APK поверх приложения. [Полная инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md). SHA256 — в приложенном `SHA256SUMS.txt`.
+
+## English
+
+Fresh build from source `main` **9e5b66d8f3851c244b64dd95a48aac9eaa5e7cd2**: Java, resources and all three native renderers were rebuilt. Test APK v869 was used as a reference. Version **0.177**, versionCode **870**, package `com.alf.alyxquest`; signing certificate unchanged.
+
+- Redesigned RU/EN launcher, retaining its existing icon.
+- MK2 rendering: updated PGO Turnip compiler, cached VRS, a readback-lock fix and preparation of 606 pipelines with separate catalogs for all three renderers.
+- Five AA modes: Off, MSAA 2×, SMAA Medium, Ultra and Ultra with softening. VRS supports Off/SMAA; MSAA temporarily disables it while retaining the checkbox choice. Experimental TAA is removed from the public menu.
+- Reversible presets: **Quality — 85%, Performance — 50%**, **1024-pixel textures**, automatic pool. **The first migration to MK2 applies Performance at 50% render resolution.** Adjust settings or use Restore my settings. Previously migrated MK2 test-build preferences remain; 67% is still a manual choice.
+- Resumable, chunk-verified Workshop downloads; cache compression preserves UI, hands/weapons and readable text detail, with stronger recovery. Previously removed detail requires original files.
+- Heavy diagnostics, frame profiling and runtime telemetry are disabled in every renderer. Diagnostic markers cannot re-enable them.
+
+Verified signature, alignment, **19 libraries**, **150 runtime files** and their production extraction, **6573 source-input hash records**, catalogs, presets, Workshop and cache recovery. All previous 148 runtime entries are preserved.
+
+Six cold Quest 3 heavy-save launches of at least 150 seconds each are documented for v869. **The new build 870 has not been separately tested in headset gameplay.** The catalog does not guarantee stutter-free rendering or full campaign coverage; no specific flashlight memory-leak cure is claimed.
+
+Install over the existing app. [Full instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md). Check the attached `SHA256SUMS.txt`.
+
 # Alyx Jailbreak 0.176 — hotfix, build 823
 
 ## Русский
