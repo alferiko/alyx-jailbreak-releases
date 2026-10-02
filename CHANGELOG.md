@@ -1,3 +1,39 @@
+# Alyx Jailbreak 0.178 — build 877
+
+## Русский
+
+Исправлен вылет при подготовке шейдеров на старте, когда игровые файлы отличаются от эталона каталога, в том числе после сжатия игровых ресурсов.
+
+- Ошибки проверки обрабатываются на отдельном нативном потоке, без прежнего аварийного разворачивания стека игры.
+- При несовпадении файлов предварительно компилируются только пайплайны, все шейдерные стадии которых точно совпали с уже загруженными игрой. Остальные пропускаются и остаются на обычной компиляции. Если совпадений нет, игра продолжает запуск без импорта подготовленного кеша.
+- Пользовательские моды исключены из перечня зависимостей встроенного каталога.
+- При первом запуске после изменения номера сборки однократно очищаются четыре кеша шейдеров/pipeline. Сохранения, настройки и игровые архивы сохраняются.
+- Во всех трёх вариантах рендера сохранён релизный режим без тяжёлой диагностики и покадрового профилирования.
+
+Версия **0.178**, сборка **877**, исходный `main`: `d1e5ae59da94f3ce4900bbb4936ee97158f3df59`. Публикуется тот же подписанный APK, который прошёл беглую проверку на Quest 3. Проверены **19 библиотек**, **150 файлов runtime**, три каталога и прежний сертификат подписи. Нативные тесты выборочной подготовки и обработки ошибок прошли под ASan/UBSan.
+
+На проверенном Quest при отличающемся индексе VPK успешно подготовлены и импортированы 44 графических и 3 вычислительных пайплайна. Это подтверждает работу выборочного режима, но не полное покрытие шейдеров или кампании. Ещё не загруженные шейдеры при несовпадении файлов остаются на обычной компиляции. Известное ограничение: Android зарегистрировал сигнал 11 при выходе пользователя из игры; исправление завершения процесса в этот выпуск не входит.
+
+Установите APK поверх приложения. Владельцам тестовой **0.178 / v877** повторная установка не нужна: файл идентичен. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md). SHA256 — в `SHA256SUMS.txt`.
+
+## English
+
+Fixes the startup crash during shader preparation when installed game assets differ from the catalog reference, including after game-resource compression.
+
+- Validation failures are handled on a native worker, avoiding the previous exception unwind through the game's stack.
+- On an asset mismatch, only pipelines whose complete shader stages exactly match modules already loaded by the game are prepared. Other pipelines use normal compilation. With no matches, startup continues without importing a prepared cache.
+- User mods are excluded from bundled catalog dependencies.
+- Four shader/pipeline caches are cleared once on the first launch after a build-number change. Saves, settings and game archives are preserved.
+- All three renderers retain the release configuration with heavy diagnostics and frame profiling disabled.
+
+Version **0.178**, build **877**, source `main`: `d1e5ae59da94f3ce4900bbb4936ee97158f3df59`. This is the same signed APK checked on Quest 3. Verified **19 libraries**, **150 runtime files**, three catalogs and the unchanged signing certificate. Selective preparation and failure-handling tests passed under ASan/UBSan.
+
+On the tested Quest, 44 graphics and 3 compute pipelines were successfully prepared and imported despite a VPK index mismatch. This verifies selective recovery, not full shader or campaign coverage. With mismatched assets, shaders not yet loaded use normal compilation. Known limitation: Android recorded signal 11 during a user-initiated game exit; shutdown handling is not fixed in this release.
+
+Install over the existing app. Users already on test **0.178 / v877** do not need to reinstall: the APK is identical. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md). Check `SHA256SUMS.txt`.
+
+---
+
 # Alyx Jailbreak 0.177 — build 870
 
 ## Русский

@@ -1,12 +1,19 @@
-# Alyx Jailbreak — 0.177
+# Alyx Jailbreak — 0.178
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
 Standalone Half-Life: Alyx launcher and ARM64 runtime for Meta Quest 3 with Quest Turnip rendering. This public repository contains release documentation and APK downloads. Application sources, build tools, signing keys and research files are kept separately.
 
-## What's new in 0.177
+## What's new in 0.178
 
-Version **0.177**, build **870**, is freshly compiled from source `main` commit `9e5b66d8f3851c244b64dd95a48aac9eaa5e7cd2`. All three native renderers were rebuilt. The supplied test APK v869 was used as a reference, not as the release payload.
+Version **0.178**, build **877**, fixes the shader-catalog startup crash when game files differ from the reference. Source `main`: `d1e5ae59da94f3ce4900bbb4936ee97158f3df59`. The released APK is identical to the v877 APK checked on Quest 3.
+
+- Validation errors are handled on a native worker. An asset mismatch now selects pipelines with exact matches to shader modules already loaded by the game; unmatched pipelines use normal compilation.
+- Optional user mods are excluded from bundled catalog dependencies.
+- Four shader/pipeline caches are cleared once after a build-number change, preserving saves, settings and game archives.
+- The release keeps heavy diagnostics and frame profiling disabled in all three renderers.
+
+## Rendering and launcher
 
 - Redesigned native launcher with RU/EN support, clearer navigation and the existing application icon.
 - MK2 rendering: updated PGO-optimized Turnip compiler, cached VRS maps, reduced duplicate pipeline compilation and a VR readback-lock fix. Bundled shader preparation contains **606 pipelines** with separate catalogs for Off, MSAA and SMAA and profiles for VRS/filtering combinations. Preparation can add startup time; the catalog does not cover every possible scene.
@@ -26,8 +33,8 @@ Free space is needed for the current file's backup and index; a large standalone
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.177.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.177/Alyx-Jailbreak-0.177.apk).
-2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.177.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.178.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.178/Alyx-Jailbreak-0.178.apk).
+2. Install over the existing app with your usual Quest APK installer or `adb install -r Alyx-Jailbreak-0.178.apk`. The signing certificate is unchanged; do not uninstall first if you want to preserve app preferences.
 3. For a first installation, copy the **game** folder from your own Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file.
 4. Open the launcher, allow file access, check the game files, then launch. The bundled ARM64/Linux runtime is installed automatically; a separate ARM depot copy is unnecessary.
 5. Select RU/EN for the launcher language. Game interface/subtitle language is a separate setting.
@@ -38,10 +45,11 @@ Graphics changes apply on the next game launch; save progress before restarting.
 
 ## Validation and limitations
 
-- Fresh build 870 passed signature/certificate and alignment checks. All **19 native libraries**, **150 runtime files**, renderer catalogs and **6573 source-input hash records** were verified. The original 148 runtime entries are unchanged; all 150 files passed extraction to their declared paths using the production installer and a repeated-install check.
-- Preset/restore/manual-choice, AA/VRS, Workshop, runtime recovery and release-policy tests passed, including 26 rejected diagnostic configurations, 3065 cache-compression assertions and 12 Android filesystem fault-model assertions.
-- The supplied v869 test APK has documented Quest 3 validation: six cold launches of a heavy save, at least 150 seconds each, covering Off/MSAA/SMAA with the supported VRS combinations. This evidence belongs to **v869**. The freshly rebuilt **870 has not been separately tested in gameplay on the headset**.
-- Full campaign coverage, every chapter transition and stutter-free rendering are not established. Dynamic resolution does not guarantee its target frame rate. Render acceleration reduces some shadows/effects while retaining the flashlight; no specific flashlight memory-leak cure or performance percentage is claimed. Experimental Xen controls are excluded from this public build.
+- Build **877** passed signature/certificate, alignment and release-policy checks. All **19 native libraries**, **150 runtime files** and three renderer catalogs were verified; the runtime payload and 16 non-host libraries are unchanged from v876.
+- Selective replay, cache import, skipped dependencies and native failure handling passed ASan/UBSan tests and Android ARM64 compilation checks.
+- The exact released APK was checked on Quest 3. A real VPK index mismatch was handled successfully: **44 graphics and 3 compute pipelines** were prepared and imported, with the rest skipped. This is a brief device check, not a complete gameplay matrix.
+- Asset compression can change VPK indexes without changing shader code. When the strict asset check fails, only already-loaded matching shader modules qualify for selective preparation; the rest compile normally. A cache reset does not restore compressed game resources.
+- Android recorded signal 11 during a user-initiated exit on the tested Quest. Shutdown handling is not fixed by this release. Full campaign coverage and stutter-free rendering are not established.
 
 See [CHANGELOG](CHANGELOG.md) for earlier releases and [SHA256SUMS](SHA256SUMS.txt) to verify the current APK.
 
