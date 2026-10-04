@@ -1,3 +1,31 @@
+# Alyx Jailbreak 0.179 — build 889
+
+## Русский
+
+Исправлен вылет у лестницы в главе 9: разбор строк на рабочих потоках клиента и рендера мира переведён на системный обработчик Android. Это устраняет обращение к некорректному состоянию локали гостевой C-библиотеки на нативном потоке.
+
+Сборка **889**, версия **0.179**, заново собрана из `main` `1a5d785647f4ef32b540194af1f29548367af1bd`. Сохранены исправления 0.178: выборочная подготовка шейдеров при несовпадении игровых файлов, обработка ошибок на нативном потоке, исключение модов из зависимостей каталога и однократная очистка четырёх кешей после обновления сборки. Настройки, сохранения и игровые архивы сохраняются.
+
+Проверены подпись и прежний сертификат, выравнивание, **19 библиотек**, **150 файлов runtime** и все три каталога рендера. Тяжёлая диагностика, покадровое профилирование и runtime-телеметрия отключены. Runtime и 16 библиотек вне host не изменились относительно v877.
+
+Исправление проверено на Android: 16 форматов строк, 8 рабочих потоков, по 10 000 итераций. На тестовой **v888** пользователь прошёл проблемную лестницу без вылета. **Новая релизная v889 отдельно в игре на гарнитуре не проверялась.** Это исправление конкретного вылета, а не подтверждение полного прохождения кампании. Ранее отмеченный сигнал 11 при выходе пользователя из игры этим выпуском не исправлен.
+
+Установите [APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.179/Alyx-Jailbreak-0.179.apk) поверх приложения, без удаления. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md). Контрольная сумма — в `SHA256SUMS.txt`.
+
+## English
+
+Fixes the crash near the stairs in chapter 9. String parsing on client and world-renderer worker threads now uses the Android system parser, avoiding invalid access to the guest C library's thread-local locale state.
+
+Build **889**, version **0.179**, freshly built from `main` `1a5d785647f4ef32b540194af1f29548367af1bd`. Retains the 0.178 fixes: selective shader preparation on game-file mismatches, native-worker failure handling, exclusion of mods from catalog dependencies and one-time clearing of four caches after a build-number change. Settings, saves and game archives are preserved.
+
+Verified signature and unchanged certificate, alignment, **19 libraries**, **150 runtime files** and all three renderer catalogs. Heavy diagnostics, frame profiling and runtime telemetry are disabled. Runtime and 16 non-host libraries are unchanged from v877.
+
+The fix passed an Android regression with 16 string formats, 8 workers and 10,000 iterations per worker. On test build **v888**, the user passed the previously crashing staircase. **The fresh release build v889 has not been separately tested in headset gameplay.** This addresses the specific crash, without claiming full campaign coverage. The previously observed signal 11 during a user-initiated exit is not fixed by this release.
+
+Install the [APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.179/Alyx-Jailbreak-0.179.apk) over the existing app, without uninstalling. [Instructions](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md). Check `SHA256SUMS.txt`.
+
+---
+
 # Alyx Jailbreak 0.178 — build 877
 
 ## Русский
