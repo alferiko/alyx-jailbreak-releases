@@ -1,3 +1,25 @@
+# Alyx Jailbreak 0.180
+
+## Русский
+
+- Единая сборка для Quest 2, Quest Pro, Quest 3, PICO 4 и PICO 4 Ultra.
+- Добавлен режим Extreme.
+- Добавлены загрузка игры через Steam и импорт сохранений из Steam Cloud.
+- Улучшены стабильность, управление и работа графических режимов.
+
+Устанавливайте APK поверх текущей версии, без удаления приложения.
+
+## English
+
+- One build for Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra.
+- Added Extreme mode.
+- Added game downloads through Steam and save imports from Steam Cloud.
+- Improved stability, controls and graphics modes.
+
+Install the APK over your current version without uninstalling the app.
+
+---
+
 # Alyx Jailbreak 0.179 — build 889
 
 ## Русский
