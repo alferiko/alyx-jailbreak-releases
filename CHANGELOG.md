@@ -6,8 +6,9 @@
 - Добавлен режим Extreme.
 - Добавлены загрузка игры через Steam и импорт сохранений из Steam Cloud.
 - Улучшены стабильность, управление и работа графических режимов.
+- Хотфикс: включено автоскачивание обновлений на всех поддерживаемых гарнитурах.
 
-Устанавливайте APK поверх текущей версии, без удаления приложения.
+Версия остаётся 0.180, сборка 910. Устанавливайте APK поверх текущей версии. Владельцам первоначальной 0.180 / v909 и прежних сборок с отключённым обновлятором нужно один раз установить хотфикс вручную.
 
 ## English
 
@@ -15,8 +16,9 @@
 - Added Extreme mode.
 - Added game downloads through Steam and save imports from Steam Cloud.
 - Improved stability, controls and graphics modes.
+- Hotfix: enabled automatic update downloads on all supported headsets.
 
-Install the APK over your current version without uninstalling the app.
+Version remains 0.180, build 910. Install over your current app. Users of the original 0.180 / v909 or earlier builds with the updater disabled need to install this hotfix manually once.
 
 ---
 

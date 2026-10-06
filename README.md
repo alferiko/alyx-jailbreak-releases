@@ -22,7 +22,7 @@ Steam downloads can be paused and resumed; signing in again is required after re
 
 Saves are under `game/hlvr/save`; Workshop addons are under `game/hlvr_addons`. Launcher and game languages are selected separately. Graphics changes apply on the next game launch.
 
-**Universal builds currently require manual APK updates.** Download subsequent releases from this repository and install over the app. The earlier separate PICO release remains available in the release history.
+**Automatic update downloads are available on all supported headsets and enabled by default.** Checks run when opening the launcher, at most once every six hours; installation requires confirmation. The setting remains under your control. If you already installed the original 0.180 build 909, an older universal test or a separate PICO build, install this hotfix manually once to enable future checks.
 
 ## Graphics and storage
 
@@ -32,9 +32,9 @@ Resource compression can reduce detail. Stop safely restores only the unfinished
 
 ## Compatibility and checks
 
-Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Version **0.180**, build **909**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
+Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Version **0.180**, build **910**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
 
-The corresponding test build v907 passed short Quest 3 launch/load checks in eight graphics scenarios. The fresh v909 APK has not been separately tested in headset gameplay; other target models still need testing with this merged release. Full campaign coverage and stutter-free rendering are not established.
+The corresponding test build v907 passed short Quest 3 launch/load checks in eight graphics scenarios. The fresh v910 APK has not been separately tested in headset gameplay; other target models still need testing with this merged release. Full campaign coverage and stutter-free rendering are not established.
 
 The release includes all 150 runtime files and all three rendering variants, with heavy diagnostics and frame profiling disabled. Signature, package contents and release configuration are checked before publication. See [SHA256SUMS](SHA256SUMS.txt) for the APK checksum and [CHANGELOG](CHANGELOG.md) for release history.
 
