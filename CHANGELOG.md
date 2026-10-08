@@ -1,3 +1,19 @@
+# Alyx Jailbreak 0.181
+
+## Русский
+
+- Исправлен запуск на Quest 2.
+- Добавлена подготовка шейдеров из лаунчера.
+- Улучшены настройки графики и работа кеша шейдеров.
+
+## English
+
+- Fixed startup on Quest 2.
+- Added shader preparation from the launcher.
+- Improved graphics settings and shader cache handling.
+
+---
+
 # Alyx Jailbreak 0.180
 
 ## Русский
