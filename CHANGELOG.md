@@ -1,3 +1,15 @@
+# Alyx Jailbreak 0.182
+
+## Русский
+
+Улучшена работа кеша шейдеров при загрузке игры.
+
+## English
+
+Improved shader cache handling during game loading.
+
+---
+
 # Alyx Jailbreak 0.181
 
 ## Русский

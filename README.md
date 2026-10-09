@@ -1,4 +1,4 @@
-# Alyx Jailbreak — 0.181
+# Alyx Jailbreak — 0.182
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
@@ -6,14 +6,12 @@ Standalone Half-Life: Alyx launcher and ARM64 runtime. This repository contains 
 
 ## What's new
 
-- Fixed startup on Quest 2.
-- Added shader preparation from the launcher.
-- Improved graphics settings and shader cache handling.
+Improved shader cache handling during game loading.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.181.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.181/Alyx-Jailbreak-0.181.apk).
-2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.181.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.182.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.182/Alyx-Jailbreak-0.182.apk).
+2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.182.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
 3. For a first installation, download game files through the launcher using your own Steam account with a Half-Life: Alyx license, or copy the **game** folder from your Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file. The Steam download option appears when no complete game installation is found.
 4. Grant file access, check the game files and launch. The bundled ARM64 runtime is installed automatically.
 
@@ -31,9 +29,9 @@ Resource compression can reduce detail. Stop safely restores only the unfinished
 
 ## Compatibility and checks
 
-Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Version **0.181**, build **2012**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
+Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Version **0.182**, build **2013**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
 
-The Quest 2 startup fix was confirmed on the earlier v911 test build. This release APK, v2012, has passed package checks but has not been separately tested in headset gameplay. Full campaign coverage and stutter-free rendering are not established.
+The release APK passed short Quest 3 checks of menu startup and loading a heavy save. Full campaign coverage, other headset models and stutter-free rendering are not established.
 
 The release includes all 150 runtime files and all three rendering variants, with heavy diagnostics and frame profiling disabled. Signature, package contents and release configuration are checked before publication. See [SHA256SUMS](SHA256SUMS.txt) for the APK checksum and [CHANGELOG](CHANGELOG.md) for release history.
 
