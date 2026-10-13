@@ -1,3 +1,23 @@
+# Alyx Jailbreak 0.183
+
+## Русский
+
+- Улучшены графика и режимы оптимизации.
+- Доработаны управление и настройки контроллеров.
+- Улучшена подготовка шейдеров.
+- Оптимизировано использование памяти.
+- Исправлены ошибки и повышена стабильность игры.
+
+## English
+
+- Improved graphics and optimization modes.
+- Refined controls and controller settings.
+- Improved shader preparation.
+- Optimized memory usage.
+- Fixed bugs and improved game stability.
+
+---
+
 # Alyx Jailbreak 0.182
 
 ## Русский
