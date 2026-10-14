@@ -1,3 +1,17 @@
+# Alyx Jailbreak 0.184
+
+## Русский
+
+- Добавлена настройка для более комфортной игры при низком FPS.
+- Улучшена работа режимов оптимизации.
+
+## English
+
+- Added an option to improve gameplay at low frame rates.
+- Improved optimization mode behavior.
+
+---
+
 # Alyx Jailbreak 0.183
 
 ## Русский
