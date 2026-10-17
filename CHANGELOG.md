@@ -1,3 +1,19 @@
+# Alyx Jailbreak 0.186
+
+## Русский
+
+- Улучшена подгрузка шейдеров.
+- Обновлена работа кеша шейдеров.
+- Оптимизировано использование памяти.
+
+## English
+
+- Improved shader loading.
+- Updated shader cache handling.
+- Optimized memory usage.
+
+---
+
 # Alyx Jailbreak 0.185 — Hotfix 1
 
 ## Русский
