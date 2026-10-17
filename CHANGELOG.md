@@ -1,3 +1,17 @@
+# Alyx Jailbreak 0.185 — Hotfix 1
+
+## Русский
+
+- Восстановлен полный набор данных для подготовки шейдеров.
+- Исправлена комплектация релиза.
+
+## English
+
+- Restored the complete shader preparation data set.
+- Fixed release packaging omissions.
+
+---
+
 # Alyx Jailbreak 0.185
 
 ## Русский
