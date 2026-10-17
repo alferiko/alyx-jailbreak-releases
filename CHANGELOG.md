@@ -1,3 +1,21 @@
+# Alyx Jailbreak 0.185
+
+## Русский
+
+- Добавлены новые режимы сглаживания.
+- Обновлены графические пресеты и настройки оптимизации.
+- Доработано отключение динамических теней и упрощение эффектов.
+- Расширены настройки управления, включая обмен функциями стиков.
+
+## English
+
+- Added new antialiasing modes.
+- Updated graphics presets and optimization settings.
+- Refined dynamic shadow disabling and effect simplification.
+- Expanded control settings, including an option to swap stick functions.
+
+---
+
 # Alyx Jailbreak 0.184
 
 ## Русский
