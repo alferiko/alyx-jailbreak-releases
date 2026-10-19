@@ -1,4 +1,4 @@
-# Alyx Jailbreak — 0.186
+# Alyx Jailbreak — 0.187
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
@@ -6,14 +6,16 @@ Standalone Half-Life: Alyx launcher and ARM64 runtime. This repository contains 
 
 ## What's new
 
-- Improved shader loading.
-- Updated shader cache handling.
-- Optimized memory usage.
+- Added compatibility with Scalable Init Support and addons that use it. Fixed recognition of installed mods by Workshop ID and initialization of their scripts. Missing dependencies and incorrect load order now produce warnings without forcibly toggling addons or restarting the map. Install and enable Scalable Init Support and the required dependencies in the Addons menu.
+- Full Workshop addon names now appear in the launcher and in-game addon lists.
+- Fixed a crash when handling Lua script errors and a failure when restoring the Workshop page.
+- Optimized shadow processing and memory usage across antialiasing modes.
+- Improved shader preparation storage: identical archives are shared without unnecessary copies.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.186.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.186/Alyx-Jailbreak-0.186.apk).
-2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.186.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.187.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.187/Alyx-Jailbreak-0.187.apk).
+2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.187.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
 3. For a first installation, download game files through the launcher using your own Steam account with a Half-Life: Alyx license, or copy the **game** folder from your Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file. The Steam download option appears when no complete game installation is found.
 4. Grant file access, check the game files and launch. The bundled ARM64 runtime is installed automatically.
 
@@ -31,9 +33,9 @@ Resource compression can reduce detail. Stop safely restores only the unfinished
 
 ## Compatibility and checks
 
-Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Release **0.186**; APK version **0.186-rc1**, build **2155**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
+Targets: **Quest 2, Quest Pro, Quest 3, PICO 4 and PICO 4 Ultra**. Version **0.187**, build **2192**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20260921`; compatibility with arbitrary future game data is not guaranteed.
 
-This exact APK passed package and configuration checks, and headset gameplay was confirmed before publication. The tested binary is published unchanged; its internal version label remains 0.186-rc1.
+This exact APK passed package and configuration checks, and headset gameplay was confirmed before publication. The tested binary is published unchanged.
 
 The release includes all 150 runtime files and all four rendering variants, with heavy diagnostics and frame profiling disabled. Signature, package contents and release configuration are checked before publication. See [SHA256SUMS](SHA256SUMS.txt) for the APK checksum and [CHANGELOG](CHANGELOG.md) for release history.
 

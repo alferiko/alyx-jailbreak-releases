@@ -1,3 +1,23 @@
+# Alyx Jailbreak 0.187
+
+## Русский
+
+- Добавлена совместимость со Scalable Init Support и использующими его аддонами. Исправлено распознавание установленных модов по Workshop ID и запуск их скриптов. При отсутствии зависимости или неправильном порядке загрузки выводится предупреждение без принудительного переключения аддонов и перезапуска карты. Scalable Init Support и нужные зависимости необходимо установить и включить в меню аддонов.
+- В списках аддонов лаунчера и игры теперь отображаются полные названия из Workshop.
+- Исправлен вылет при обработке ошибок Lua-скриптов и сбой восстановления страницы Workshop.
+- Оптимизирована обработка теней и использование памяти в разных режимах сглаживания.
+- Улучшено хранение данных подготовки шейдеров: одинаковые архивы используются совместно, без лишних копий.
+
+## English
+
+- Added compatibility with Scalable Init Support and addons that use it. Fixed recognition of installed mods by Workshop ID and initialization of their scripts. Missing dependencies and incorrect load order now produce warnings without forcibly toggling addons or restarting the map. Install and enable Scalable Init Support and the required dependencies in the Addons menu.
+- Full Workshop addon names now appear in the launcher and in-game addon lists.
+- Fixed a crash when handling Lua script errors and a failure when restoring the Workshop page.
+- Optimized shadow processing and memory usage across antialiasing modes.
+- Improved shader preparation storage: identical archives are shared without unnecessary copies.
+
+---
+
 # Alyx Jailbreak 0.186
 
 ## Русский
