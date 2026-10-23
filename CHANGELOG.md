@@ -1,3 +1,25 @@
+# Alyx Jailbreak 0.188
+
+## Русский
+
+- Добавлены новые режимы сглаживания для Quest 3/3S, улучшена обработка изображения.
+- Улучшена работа динамического разрешения и подготовки шейдеров.
+- Сохранены оптимизации памяти и совместимость с поддерживаемыми шлемами Quest и PICO.
+- Отключена оптимизация теней, которая могла вызывать нестабильность.
+- Восстановлена независимая настройка упрощения моделей, улучшена её совместимость с оптимизированными моделями Xen.
+- Обновлены графические настройки и перенос сохранённых параметров при обновлении.
+
+## English
+
+- Added new antialiasing modes for Quest 3/3S and improved image processing.
+- Improved dynamic resolution and shader preparation.
+- Retained memory optimizations and compatibility with supported Quest and PICO headsets.
+- Disabled a shadow optimization that could cause instability.
+- Restored independent model simplification settings and improved compatibility with optimized Xen models.
+- Updated graphics settings and migration of saved preferences when updating.
+
+---
+
 # Alyx Jailbreak 0.187
 
 ## Русский
