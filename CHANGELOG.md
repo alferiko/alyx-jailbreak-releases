@@ -1,3 +1,25 @@
+# Alyx Jailbreak 0.200
+
+## Русский
+
+- Обновлён графический драйвер, улучшены работа с памятью и обработка шейдеров.
+- Добавлена адаптивная настройка разрешения Native Auto Fidelity для Quest 3 и 3S.
+- Улучшена работа сглаживания и VRS, уменьшены повторные затраты при смене разрешения.
+- Исправлены прозрачность стекла и мерцание волос на персонажах.
+- Исправлена подготовка шейдеров на PICO.
+- Обновлены игровые библиотеки и стандартные настройки текстур.
+
+## English
+
+- Updated the graphics driver and improved memory and shader handling.
+- Added Native Auto Fidelity adaptive resolution for Quest 3 and 3S.
+- Improved antialiasing and VRS, reducing repeated work when resolution changes.
+- Fixed glass transparency and facial hair flickering.
+- Fixed shader preparation on PICO.
+- Updated game libraries and default texture settings.
+
+---
+
 # Alyx Jailbreak 0.188
 
 ## Русский
