@@ -1,3 +1,27 @@
+# Alyx Jailbreak 0.201
+
+## Русский
+
+- Оптимизирована отрисовка интерфейса станка улучшения оружия.
+- Улучшена обработка небольших проходов рендера для снижения нагрузки на GPU.
+- Исправлена ошибка освобождения графических ресурсов, повышена стабильность.
+- Обновлены настройки первого запуска: 36 FPS с репроекцией по глубине, FDM+TAA и упрощение моделей — с учётом возможностей гарнитуры.
+- Уточнены названия и пояснения режимов репроекции, включая Headset timewarp.
+
+Существующие пользовательские настройки сохраняются.
+
+## English
+
+- Optimized rendering of the weapon upgrade station interface.
+- Improved small render pass handling to reduce GPU load.
+- Fixed a graphics resource cleanup error and improved stability.
+- Updated first-launch defaults: 36 FPS with depth reprojection, FDM+TAA and model simplification, depending on headset capabilities.
+- Clarified reprojection mode names and descriptions, including Headset timewarp.
+
+Existing user settings are preserved.
+
+---
+
 # Alyx Jailbreak 0.200
 
 ## Русский
