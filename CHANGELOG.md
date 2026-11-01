@@ -1,3 +1,25 @@
+# Alyx Jailbreak 0.203
+
+## Русский
+
+- Снижена нагрузка от ряда тяжёлых эффектов.
+- Улучшен приоритет передачи готовых кадров в гарнитуру.
+- В лаунчер добавлен переключатель Dev Menu, включённый по умолчанию.
+- Добавлена внутриигровая VR-консоль с клавиатурой для контроллеров, историей команд и просмотром вывода игры. Она доступна рядом с Dev Menu и управляется тем же переключателем.
+
+Существующие настройки сохраняются. Тяжёлая диагностика и покадровое профилирование отключены.
+
+## English
+
+- Reduced the load from several demanding effects.
+- Improved priority for transferring ready frames to the headset.
+- Added a Dev Menu toggle to the launcher, enabled by default.
+- Added an in-game VR console with a controller-operated keyboard, command history and game output. It is available next to Dev Menu and controlled by the same toggle.
+
+Existing settings are preserved. Heavy diagnostics and per-frame profiling are disabled.
+
+---
+
 # Alyx Jailbreak 0.202
 
 ## Русский

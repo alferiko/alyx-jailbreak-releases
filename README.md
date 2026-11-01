@@ -1,4 +1,4 @@
-# Alyx Jailbreak — 0.202
+# Alyx Jailbreak — 0.203
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
@@ -6,21 +6,17 @@ Standalone Half-Life: Alyx launcher and ARM64 runtime. This repository contains 
 
 ## What's new
 
-- Improved TAA and TAAU fine-detail handling, seam removal and reduced additional blur.
-- Optimized antialiasing and frame transfer; enabled hardware resolve for MSAA 2×, 4× and MSAA+TAA.
-- Updated the antialiasing menu with approximate FPS loss figures and measurement conditions.
-- Shader preparation now covers all supported antialiasing modes, starting with the selected mode.
-- Updated the Performance preset: 67% render resolution, TAAU on supported headsets and model simplification.
-- Render resolution can now be changed while low-memory optimization is enabled.
-- Optimized the upgrade station interface and opaque-object rendering.
-- Added a volumetric fog setting and fixed dynamic shadow switching.
+- Reduced the load from several demanding effects.
+- Improved priority for transferring ready frames to the headset.
+- Added a Dev Menu toggle to the launcher, enabled by default.
+- Added an in-game VR console with a controller-operated keyboard, command history and game output. It is available next to Dev Menu and controlled by the same toggle.
 
-Existing settings are preserved. Updated preset settings apply when the preset is selected.
+Existing settings are preserved. Heavy diagnostics and per-frame profiling are disabled.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.202.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.202/Alyx-Jailbreak-0.202.apk).
-2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.202.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.203.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.203/Alyx-Jailbreak-0.203.apk).
+2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.203.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
 3. For a first installation, download game files through the launcher using your own Steam account with a Half-Life: Alyx license, or copy the **game** folder from your Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file. The Steam download option appears when no complete game installation is found.
 4. Grant file access, check the game files and launch. The bundled ARM64 runtime is installed automatically.
 
@@ -119,6 +115,7 @@ These are the original stereo screenshots from that comparison. Open them at ful
 
 | Section and item | Purpose and recommendation |
 |---|---|
+| Main: Valve Dev Menu and Console | Shows Dev Menu and the VR console in the pause menu. Enabled by default; changes apply at the next launch. The console supports a controller keyboard, command history and game output. |
 | Main: game folder | Folder name in headset storage, normally `AlyxJailbreak`. Change only if your files actually reside elsewhere. |
 | Grant file access / Check files | Grant access and check completeness before launching. Checking also installs the bundled game runtime. |
 | Steam game download | Sign in with your licensed account and wait for download/compression. Pause/resume keeps progress; restarting the app requires signing in again. Cloud-save import preserves existing local saves. |
@@ -134,7 +131,7 @@ These are the original stereo screenshots from that comparison. Open them at ful
 
 ## Compatibility and checks
 
-Targets: **Quest 2, Quest Pro, Quest 3, Quest 3S, PICO 4 and PICO 4 Ultra**. Version **0.202**, build **3514**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20261027`; compatibility with arbitrary future game data is not guaranteed.
+Targets: **Quest 2, Quest Pro, Quest 3, Quest 3S, PICO 4 and PICO 4 Ultra**. Version **0.203**, build **3614**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20261027`; compatibility with arbitrary future game data is not guaranteed.
 
 This exact APK passed package, configuration and targeted functional checks. The audited binary is published unchanged.
 
