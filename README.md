@@ -51,7 +51,7 @@ Presets select Headset timewarp, disable MQSR, and enable memory savings and ren
 
 ### Antialiasing choices and screenshots
 
-**[Open the interactive comparison](https://alferiko.github.io/alyx-jailbreak-releases/compare.html)** — select any two modes, drag the divider, choose either eye and inspect at 1:1 or 2:1. The original comparison controls are preserved; GitHub README cannot run JavaScript. Viewer controls are in Russian; mode names and percentages identify each image.
+**[Open the interactive comparison](https://alferiko.github.io/alyx-jailbreak-releases/compare.en.html)** — select any two modes, drag the divider, choose either eye and inspect at 1:1 or 2:1. The original comparison controls are preserved; GitHub README cannot run JavaScript. The viewer supports Russian and English (RU / EN).
 
 | Mode | Suggested use | Approximate measured FPS loss |
 |---|---|---:|
