@@ -1,3 +1,33 @@
+# Alyx Jailbreak 0.202
+
+## Русский
+
+- Улучшена работа TAA и TAAU: обработка тонких деталей, устранение швов и уменьшение дополнительного размытия.
+- Оптимизированы сглаживание и передача кадров, включён аппаратный resolve для MSAA 2×, 4× и MSAA+TAA.
+- Обновлено меню сглаживания: добавлены ориентировочные показатели падения FPS и пояснения к замерам.
+- Подготовка шейдеров теперь охватывает все поддерживаемые режимы сглаживания, начиная с выбранного.
+- Обновлён пресет «Производительность»: 67% разрешения рендера, TAAU на поддерживаемых гарнитурах и упрощение моделей.
+- Добавлена возможность менять разрешение при включённой оптимизации памяти.
+- Оптимизированы интерфейс станка и обработка непрозрачных объектов.
+- Добавлена настройка объёмного тумана, исправлено переключение динамических теней.
+
+Существующие настройки сохраняются. Обновлённые параметры пресета применяются при его выборе.
+
+## English
+
+- Improved TAA and TAAU fine-detail handling, seam removal and reduced additional blur.
+- Optimized antialiasing and frame transfer; enabled hardware resolve for MSAA 2×, 4× and MSAA+TAA.
+- Updated the antialiasing menu with approximate FPS loss figures and measurement conditions.
+- Shader preparation now covers all supported antialiasing modes, starting with the selected mode.
+- Updated the Performance preset: 67% render resolution, TAAU on supported headsets and model simplification.
+- Render resolution can now be changed while low-memory optimization is enabled.
+- Optimized the upgrade station interface and opaque-object rendering.
+- Added a volumetric fog setting and fixed dynamic shadow switching.
+
+Existing settings are preserved. Updated preset settings apply when the preset is selected.
+
+---
+
 # Alyx Jailbreak 0.201
 
 ## Русский

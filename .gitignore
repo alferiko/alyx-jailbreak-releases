@@ -7,3 +7,10 @@
 !SHA256SUMS.txt
 !.github/
 !.github/FUNDING.yml
+
+!docs/
+!docs/images/
+!docs/images/aa/
+!docs/images/aa/*.png
+!docs/*.html
+!docs/.nojekyll
