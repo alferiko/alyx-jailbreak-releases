@@ -1,4 +1,6 @@
-# Alyx Jailbreak — 0.203
+![Alyx Jailbreak](docs/images/alyx-jailbreak-cover.jpg)
+
+# Alyx Jailbreak — 0.342
 
 [Русский](README.ru.md) · **English** · [Download APK](https://github.com/alferiko/alyx-jailbreak-releases/releases/latest)
 
@@ -6,19 +8,30 @@ Standalone Half-Life: Alyx launcher and ARM64 runtime. This repository contains 
 
 ## What's new
 
-- Reduced the load from several demanding effects.
-- Improved priority for transferring ready frames to the headset.
-- Added a Dev Menu toggle to the launcher, enabled by default.
-- Added an in-game VR console with a controller-operated keyboard, command history and game output. It is available next to Dev Menu and controlled by the same toggle.
+**We strongly recommend enabling Valve Auto Fidelity** in Graphics → Render resolution. It adjusts rendering between 60–100% with a 36 FPS target on supported Quest headsets. Press Apply and restart the game. Existing installations keep their saved resolution choice, so check it after updating.
 
-Existing settings are preserved. Heavy diagnostics and per-frame profiling are disabled.
+**PICO compatibility warning:** the transition to GNU/glibc may have broken compatibility with PICO headsets. This release was tested on Quest 3; PICO compatibility has not been verified.
+
+Changes since [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203):
+
+- Migrated the game runtime and graphics driver to GNU/glibc; improved menus, stereo rendering and memory use.
+- Improved TAA/TAAU, SMAA and MSAA, with less shimmering and a sharper image center. Updated Valve Auto Fidelity and Quest presets; added uncapped depth reprojection.
+- Optimized demanding effects, geometry and LODs, including North Star, Xen and Vault. Added an opaque-geometry sorting toggle.
+- Added Original, Optimized and Simplified model modes covering **4,983 optimized models**: 3,583 bundled and **1,400 in a separate optional pack**. The approximately 503 MB download has progress, resume and integrity checks. If it fails, you can continue without it; the launcher retries on subsequent launches. The installed pack is reused across APK updates.
+- Added a **flashlight toggle by double-pressing Y**, local achievements, frame statistics and an intro-skip option.
+- Fixed the empty save menu after death, a TAAU + Valve Auto Fidelity crash after starting a new game, and menu, crosshair, fog and particle issues.
+- Improved Steam installation, Steam Guard waiting and recovery from interrupted resource processing. Startup preparation is asynchronous and compatible shader caches are reused.
+- Added APK download progress and improved the VR console. PICO Neo 3 controller support is experimental; see the compatibility warning above.
+
+[Full patch notes](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.342). Heavy diagnostics and per-frame profiling are disabled.
 
 ## Installation and updates
 
-1. Download [Alyx-Jailbreak-0.203.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.203/Alyx-Jailbreak-0.203.apk).
-2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.203.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
+1. Download [Alyx-Jailbreak-0.342.apk](https://github.com/alferiko/alyx-jailbreak-releases/releases/download/v0.342/Alyx-Jailbreak-0.342.apk).
+2. Install over the existing app using your headset's APK installer or `adb install -r Alyx-Jailbreak-0.342.apk`. The package and signing certificate are unchanged. Do not uninstall first if you want to preserve app preferences.
 3. For a first installation, download game files through the launcher using your own Steam account with a Half-Life: Alyx license, or copy the **game** folder from your Windows installation to `/sdcard/AlyxJailbreak/game/`, including every VPK part and shader file. The Steam download option appears when no complete game installation is found.
-4. Grant file access, check the game files and launch. The bundled ARM64 runtime is installed automatically.
+4. Grant file access, check the game files and launch. The bundled GNU/ARM64 runtime is installed automatically.
+5. On the first game launch with game files ready, allow the optional model pack to download and unpack (about 503 MB download). The progress dialog supports resume. If unavailable, continue without it; the launcher retries on later launches. Successful installation is reused across APK updates.
 
 Steam downloads can be paused and resumed; signing in again is required after restarting the app. The download includes resource compression. Steam Cloud import preserves existing local saves and does not upload files to Steam Cloud. Wait until all installation and compression steps finish before launching the game.
 
@@ -34,18 +47,22 @@ Resource compression can reduce detail. Stop safely restores only the unfinished
 
 ## Recommended settings
 
-Start with **Performance** and test a demanding scene in your own game. This is a starting point, not a promise of identical FPS on every headset. Change one option at a time, press Apply and restart the game. Updating the APK does not automatically replace saved preferences with the new preset.
+**We strongly recommend enabling Valve Auto Fidelity** in Graphics → Render resolution. It adjusts rendering between 60–100% with a 36 FPS target on supported Quest headsets. Press Apply and restart the game. Existing installations keep their saved resolution choice, so check it after updating.
 
-| Preset | When to use it and what it sets |
+Fresh Quest 3/3S defaults are **TAAU + Valve Auto Fidelity**, **36 FPS / Headset timewarp**, **Optimized models**, hidden vegetation, maximum available VRS, 512 px textures, mip 0 and a 512 MiB texture pool. A fresh installation is different from manually applying the Performance preset.
+
+These presets describe Quest 3/3S; available choices differ on other headsets. Test a demanding scene, change one option at a time, press Apply and restart. Updating does not automatically apply a new preset over saved choices.
+
+| Preset | What it sets on Quest 3/3S |
 |---|---|
-| Performance | Suggested starting point: 67% render scale, TAAU where supported (otherwise AA off), strong peripheral detail reduction, simplified models, hidden vegetation, dynamic shadows, volumetric fog and heavy effects disabled. |
-| Quality | With sufficient FPS headroom: 100%, MSAA 2× + TAA where supported (otherwise MSAA 2×), visible vegetation. Heavy effects and dynamic shadows remain suppressed; this is not the game's maximum quality. |
-| Extreme | Enables low-memory optimization, initially 50%, AA and MQSR off. Noticeable blur or missing textures are possible; higher FPS is not guaranteed. |
-| Restore my settings | Restores the manual choices saved before applying a preset. |
+| Performance | Valve Auto Fidelity (60–100%, 36 FPS target), AA off, Optimized models, maximum available VRS, hidden vegetation, volumetric fog and heavy effects suppressed. |
+| Quality | 92% render scale, TAAU, Optimized models, very high VRS, visible vegetation. Heavy effects and dynamic shadows remain suppressed. |
+| Extreme | 55% render scale, MSAA 2× + MQSR where supported, Simplified models, hidden vegetation and low-memory mode. Texture detail and streaming can suffer. |
+| Restore my settings | Restores manual choices saved before applying a preset. |
 
-Presets select Headset timewarp, disable MQSR, and enable memory savings and render acceleration. On Quest, you can separately try **36 FPS + depth reprojection** where compatible with your AA mode; compare smoothness and distortions around moving objects. On PICO, use the available half-refresh-rate option. Available modes depend on the headset; a mode unsupported by your device being absent does not mean an incomplete installation.
+Presets select Headset timewarp and enable memory savings and render acceleration. Depth reprojection is also available in compatible modes, including an uncapped option. Compare moving-object distortions in your own scenes. PICO compatibility is uncertain after the GNU/glibc transition.
 
-### Antialiasing choices and screenshots
+### Historical antialiasing comparison (build 3504)
 
 **[Open the interactive comparison](https://alferiko.github.io/alyx-jailbreak-releases/compare.en.html)** — select any two modes, drag the divider, choose either eye and inspect at 1:1 or 2:1. The original comparison controls are preserved; GitHub README cannot run JavaScript. The viewer supports Russian and English (RU / EN).
 
@@ -59,7 +76,7 @@ Presets select Headset timewarp, disable MQSR, and enable memory savings and ren
 | MSAA 2× + TAA | MSAA with temporal filtering in the center; needs more performance headroom. | 26.7% |
 | MSAA 4× | More expensive geometry smoothing; test demanding scenes first. | 32.5% |
 
-**Conditions:** Quest 3, build 3504, October 31, 2026, stationary headset, `s9/quick`, 100% render scale except TAAU (67%), Maximum VRS selected, 36 FPS limit. These are the earlier measurements used in the menu, not a new benchmark of build 3514. The comparison includes effective VRS limits: up to 4×4 for Off / SMAA / TAA / TAAU, 4×2 for MSAA 2× and the hybrid, and 2×2 for MSAA 4× on supported Quest devices.
+**Conditions:** Quest 3, build 3504, October 31, 2026, stationary headset, `s9/quick`, 100% render scale except TAAU (67%), Maximum VRS selected, 36 FPS limit. These are the earlier measurements used in the menu, not a benchmark of release 0.342. The comparison includes effective VRS limits: up to 4×4 for Off / SMAA / TAA / TAAU, 4×2 for MSAA 2× and the hybrid, and 2×2 for MSAA 4× on supported Quest devices.
 
 \* TAAU was compared with AA off at the same 67% scale. Both hit the 36 FPS ceiling, so ≈0% **does not mean reconstruction is free**. One scene does not represent every map or headset.
 
@@ -89,11 +106,11 @@ These are the original stereo screenshots from that comparison. Open them at ful
 |---|---|
 | Reprojection and frame rate | Headset timewarp: 36 FPS / 72 Hz on Quest; positional correction needs the available system Positional time warp switch, which the app cannot enable or check. Depth reprojection uses scene depth. No additional limit removes the game's extra cap. System rotational correction remains active in every mode. PICO offers half the display refresh rate or no additional limit. |
 | Prevent slowdown at low FPS | Helps maintain simulation speed during FPS drops, potentially increasing CPU load. Start with Off; does not apply with depth reprojection. |
-| Render resolution | 100 / 85 / 75 / 67 / 55 / 50% scale width and height. Lower values reduce detail and load. Start at 67%, then increase with FPS headroom. |
-| Dynamic resolution | Where available, adjusts between 50–92% targeting 36 FPS. Sharpness can change during play. |
-| Valve Auto Fidelity | Alternative engine-managed automatic resolution, 50–92% targeting 36 FPS on supported Quest headsets. Use a fixed percentage first when comparing image quality. |
+| Render resolution | 100 / 92 / 85 / 75 / 67 / 55 / 50% scales width and height. Lower values reduce detail and load. Valve Auto Fidelity is strongly recommended where available. |
+| Dynamic resolution | The legacy dynamic mode remains for existing selections. Valve Auto Fidelity is the recommended automatic-resolution option. |
+| Valve Auto Fidelity | Strongly recommended: engine-managed automatic resolution between 60–100%, targeting 36 FPS on supported Quest headsets. Select it under Render resolution, Apply and restart. |
 | Antialiasing | See the comparison above. Choices depend on headset and resolution. Selecting AA on supported Quest devices can enable VRS and limit its strength. |
-| MQSR — image upscaling | Separate Quest upscaling enhancement, not a replacement for AA. Presets disable it; unavailable on PICO. Compare it at reduced resolution. |
+| MQSR — image upscaling | Separate Quest upscaling enhancement. The Quest 3/3S Extreme preset enables it with MSAA 2× where supported; other presets leave it off. |
 | Image scaling | Soft/bilinear scaling reduces pixelation; sharp scaling keeps harder pixel boundaries. Some AA modes lock bilinear filtering while preserving your manual choice for compatible modes. |
 | Maximum texture resolution | −1 uses game settings; 512 / 640 / 1024 / 2048 / 4096 px. This build starts at 512. Increase only with memory headroom; this cannot restore already compressed assets. |
 | Texture mip offset | 0–3; higher values select less detailed levels. Start at 0. |
@@ -104,11 +121,11 @@ These are the original stereo screenshots from that comparison. Open them at ful
 | VRS strength | Low through Maximum among available levels. Effective limits depend on AA and headset; a stronger saved selection can be temporarily capped. |
 | Disable volumetric fog | Removes volumetric fog, changing atmosphere and reducing its rendering cost. Enabled in Performance. |
 | Memory savings (alpha) | Experimental memory reduction. Enabled in presets; does not guarantee protection against out-of-memory crashes. |
-| Simplify vegetation | Reduces decorative vegetation range/density and uses less detailed models sooner. |
-| Simplify model quality | Selects available lower-detail model variants earlier. Enabled in Performance; separate from heavy-effect suppression. |
+| Simplify vegetation | Vegetation and model detail are now controlled through the Original / Optimized / Simplified model modes. |
+| Simplify model quality | Choose Original, Optimized or Simplified models. Optimized is the fresh-install default; the separate model pack expands available replacements. |
 | Hide vegetation | Hides decorative grass, bushes and trees. Gameplay plants and collisions remain. Unchecking shows the bundled simplified models. |
 | Suppress heavy effects | Disables depth of field, bloom and indirect specular lighting; reduces selected decorative effects and simplifies vegetation. Leave enabled for performance. |
-| Optimize for low-memory systems | Initially resets render scale to 50%, which remains adjustable. Disables AA/MQSR, uses maximum available VRS, 512 px textures, mip 3 and a 256 MiB pool, hides vegetation and suppresses shadows/effects. Controlled fields are locked; unchecking restores saved choices. Use only if the regular preset is insufficient. |
+| Optimize for low-memory systems | Uses 512 px textures, mip 3 and a 256 MiB texture pool, hides vegetation and suppresses shadows/effects. Controlled fields are locked. The standalone toggle starts at 50% with AA off; the Quest 3/3S Extreme preset uses 55% with MSAA 2× and MQSR where supported. |
 | Apply / Defaults | Saves changes / resets the section. Graphics changes apply at the next game launch. Defaults is not the same as the Performance preset. |
 
 ### Other menu sections
@@ -131,11 +148,13 @@ These are the original stereo screenshots from that comparison. Open them at ful
 
 ## Compatibility and checks
 
-Targets: **Quest 2, Quest Pro, Quest 3, Quest 3S, PICO 4 and PICO 4 Ultra**. Version **0.203**, build **3614**; Android 10 or newer. Runtime is pinned to ARM64 depot `546564-20261027`; compatibility with arbitrary future game data is not guaranteed.
+Version **0.342**, build **3850**; Android 10 or newer. Tested on **Quest 3 / Android 14**. Other Quest models have device-specific settings but were not physically retested for this release.
 
-This exact APK passed package, configuration and targeted functional checks. The audited binary is published unchanged.
+**PICO compatibility warning:** the transition to GNU/glibc may have broken compatibility with PICO headsets. This release was tested on Quest 3; PICO compatibility has not been verified.
 
-The release includes all 150 runtime files and all ten rendering variants, with heavy diagnostics and frame profiling disabled. Signature, package contents and release configuration are checked before publication. See [SHA256SUMS](SHA256SUMS.txt) for the APK checksum and [CHANGELOG](CHANGELOG.md) for release history.
+The exact published APK passed signature, package, configuration and targeted functional checks. It includes **150 runtime files, 4 bundled model files and all ten rendering variants**. On Quest 3, clean runtime/model installation, a real optional-pack GitHub download, resume, extraction, offline retry and a normal saved-game launch passed. The full Steam game was not downloaded again; its installer was exercised with test data. A full campaign run was not performed.
+
+See [SHA256SUMS](SHA256SUMS.txt) for the APK checksum and [CHANGELOG](CHANGELOG.md) for release history.
 
 ## Support
 
