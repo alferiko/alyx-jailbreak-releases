@@ -2,54 +2,29 @@
 
 ## Русский
 
-Изменения относительно последнего публичного APK-релиза [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203).
+Изменения относительно [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203):
 
-**Крайне рекомендуется включить Valve Auto Fidelity**: «Графика» → «Разрешение рендера». На поддерживаемых Quest он автоматически меняет разрешение в пределах 60–100% с целью 36 FPS. Нажмите «Применить» и перезапустите игру. При обновлении сохраняется прежний выбор разрешения — проверьте его вручную.
+- Фонарик по двойному нажатию Y, локальные достижения и пропуск вступления.
+- 4983 оптимизированные модели; 1400 скачиваются отдельно с прогрессом и докачкой. Пакет сохраняется при обновлении APK.
+- Улучшены сглаживание, стереорендер и использование памяти; обновлены графические пресеты.
+- Исправлены ошибки сохранений и вылеты; улучшены установка из Steam и обновление APK.
 
-**Важно для PICO:** переход на GNU/glibc, возможно, нарушил совместимость с PICO-шлемами. Этот релиз проверен на Quest 3; работоспособность на PICO не подтверждена.
+**Крайне рекомендуется включить Valve Auto Fidelity.**
 
-- Переход игры и графического драйвера на GNU/glibc; улучшены меню, стереорендер и использование памяти.
-- Улучшены TAA/TAAU, SMAA и MSAA: меньше мерцания, чётче центр изображения. Обновлены Valve Auto Fidelity и пресеты Quest; добавлена репроекция по глубине без лимита FPS.
-- Оптимизированы тяжёлые эффекты, геометрия и LOD, в том числе в North Star, Xen и Vault. Добавлен переключатель сортировки непрозрачной геометрии.
-- Добавлены режимы моделей «Оригинальные», «Оптимизированные» и «Упрощённые». Всего оптимизировано **4983 модели**: 3583 входят в APK, ещё **1400 — в отдельном дополнительном пакете**. Загрузка около 503 МБ показывает прогресс, поддерживает докачку и проверку целостности. При ошибке можно играть без пакета; попытка повторяется при последующих запусках. Обновления APK не требуют повторного скачивания установленного пакета.
-- Добавлены **фонарик по двойному нажатию Y**, локальные достижения, статистика кадров и пропуск вступления.
-- Исправлены пустое меню сохранений после смерти, вылет TAAU с Valve Auto Fidelity после начала новой игры, проблемы меню, прицела, тумана и частиц.
-- Повышена надёжность установки из Steam, ожидания Steam Guard и восстановления прерванной обработки ресурсов. Подготовка запуска выполняется асинхронно; совместимые кеши шейдеров переиспользуются.
-- Добавлен прогресс загрузки обновлений APK, улучшена VR-консоль. Поддержка контроллеров PICO Neo 3 экспериментальная; см. предупреждение о совместимости выше.
-
-Установите `Alyx-Jailbreak-0.342.apk` поверх прежней версии. Сохранены пакет `com.alf.alyxquest`, сертификат подписи и публичная лента обновлений. Android versionCode: **3850**.
-
-Пакет моделей хранится в [отдельном выпуске](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/model-pack-optimized-v1) и загружается автоматически при первом запуске игры с подготовленными игровыми файлами. Он обновляется независимо от APK.
-
-На Quest 3 проверены чистая установка runtime и моделей, реальное скачивание с GitHub, докачка, распаковка, повторные попытки без сети и обычный запуск сохранения. Полная повторная загрузка игры из Steam не выполнялась; её установщик проверен отдельно на тестовых данных. [Инструкция](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.ru.md).
+**Переход на GNU/glibc, возможно, нарушил совместимость с PICO-шлемами.**
 
 ## English
 
-Changes since the latest public APK release, [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203).
+Changes since [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203):
 
-**We strongly recommend enabling Valve Auto Fidelity** in Graphics → Render resolution. It adjusts rendering between 60–100% with a 36 FPS target on supported Quest headsets. Press Apply and restart the game. Existing installations keep their saved resolution choice, so check it after updating.
+- Double-press Y to toggle the flashlight; local achievements and intro skipping.
+- 4,983 optimized models; 1,400 download separately with progress and resume. The pack is retained across APK updates.
+- Improved antialiasing, stereo rendering and memory use; updated graphics presets.
+- Fixed save-menu issues and crashes; improved Steam installation and APK updates.
 
-**PICO compatibility warning:** the transition to GNU/glibc may have broken compatibility with PICO headsets. This release was tested on Quest 3; PICO compatibility has not been verified.
+**We strongly recommend enabling Valve Auto Fidelity.**
 
-- Migrated the game runtime and graphics driver to GNU/glibc; improved menus, stereo rendering and memory use.
-- Improved TAA/TAAU, SMAA and MSAA, with less shimmering and a sharper image center. Updated Valve Auto Fidelity and Quest presets; added uncapped depth reprojection.
-- Optimized demanding effects, geometry and LODs, including North Star, Xen and Vault. Added an opaque-geometry sorting toggle.
-- Added Original, Optimized and Simplified model modes covering **4,983 optimized models**: 3,583 bundled and **1,400 in a separate optional pack**. The approximately 503 MB download has progress, resume and integrity checks. If it fails, you can continue without it; the launcher retries on subsequent launches. The installed pack is reused across APK updates.
-- Added a **flashlight toggle by double-pressing Y**, local achievements, frame statistics and an intro-skip option.
-- Fixed the empty save menu after death, a TAAU + Valve Auto Fidelity crash after starting a new game, and menu, crosshair, fog and particle issues.
-- Improved Steam installation, Steam Guard waiting and recovery from interrupted resource processing. Startup preparation is asynchronous and compatible shader caches are reused.
-- Added APK download progress and improved the VR console. PICO Neo 3 controller support is experimental; see the compatibility warning above.
-
-Install `Alyx-Jailbreak-0.342.apk` over your existing version. The package `com.alf.alyxquest`, signing certificate and public update feed are unchanged. Android versionCode: **3850**.
-
-The model pack is hosted in a [separate release](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/model-pack-optimized-v1) and downloads automatically on the first game launch with game files ready. It is updated independently of the APK.
-
-Verified on Quest 3: clean runtime/model installation, a real GitHub download, resume, extraction, offline retries and a normal saved-game launch. The complete Steam game was not downloaded again; its installer was tested separately with test data. [Installation guide](https://github.com/alferiko/alyx-jailbreak-releases/blob/main/README.md).
-
-APK SHA256:
-```text
-bc6800b8c9577bbe96870c57bfed5106e0c03f74f48048d19fd844f670e20e5a  Alyx-Jailbreak-0.342.apk
-```
+**The GNU/glibc transition may have broken compatibility with PICO headsets.**
 
 ---
 

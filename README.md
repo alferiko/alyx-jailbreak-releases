@@ -8,22 +8,18 @@ Standalone Half-Life: Alyx launcher and ARM64 runtime. This repository contains 
 
 ## What's new
 
-**We strongly recommend enabling Valve Auto Fidelity** in Graphics → Render resolution. It adjusts rendering between 60–100% with a 36 FPS target on supported Quest headsets. Press Apply and restart the game. Existing installations keep their saved resolution choice, so check it after updating.
-
-**PICO compatibility warning:** the transition to GNU/glibc may have broken compatibility with PICO headsets. This release was tested on Quest 3; PICO compatibility has not been verified.
-
 Changes since [0.203](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.203):
 
-- Migrated the game runtime and graphics driver to GNU/glibc; improved menus, stereo rendering and memory use.
-- Improved TAA/TAAU, SMAA and MSAA, with less shimmering and a sharper image center. Updated Valve Auto Fidelity and Quest presets; added uncapped depth reprojection.
-- Optimized demanding effects, geometry and LODs, including North Star, Xen and Vault. Added an opaque-geometry sorting toggle.
-- Added Original, Optimized and Simplified model modes covering **4,983 optimized models**: 3,583 bundled and **1,400 in a separate optional pack**. The approximately 503 MB download has progress, resume and integrity checks. If it fails, you can continue without it; the launcher retries on subsequent launches. The installed pack is reused across APK updates.
-- Added a **flashlight toggle by double-pressing Y**, local achievements, frame statistics and an intro-skip option.
-- Fixed the empty save menu after death, a TAAU + Valve Auto Fidelity crash after starting a new game, and menu, crosshair, fog and particle issues.
-- Improved Steam installation, Steam Guard waiting and recovery from interrupted resource processing. Startup preparation is asynchronous and compatible shader caches are reused.
-- Added APK download progress and improved the VR console. PICO Neo 3 controller support is experimental; see the compatibility warning above.
+- Double-press Y to toggle the flashlight; local achievements and intro skipping.
+- 4,983 optimized models; 1,400 download separately with progress and resume. The pack is retained across APK updates.
+- Improved antialiasing, stereo rendering and memory use; updated graphics presets.
+- Fixed save-menu issues and crashes; improved Steam installation and APK updates.
 
-[Full patch notes](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.342). Heavy diagnostics and per-frame profiling are disabled.
+**We strongly recommend enabling Valve Auto Fidelity.**
+
+**The GNU/glibc transition may have broken compatibility with PICO headsets.**
+
+[Release 0.342](https://github.com/alferiko/alyx-jailbreak-releases/releases/tag/v0.342).
 
 ## Installation and updates
 
